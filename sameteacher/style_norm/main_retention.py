@@ -136,8 +136,11 @@ def retention(m: dict, bases, teachers) -> dict:
     return out
 
 
-def analyze(run_dir, cfg, sources) -> dict:
+def analyze(run_dir, cfg, sources, embedder=None, source_match: bool = True) -> dict:
+    """The locked H2 analysis; `embedder` replaces the section's embedder (main_robustness), and
+    `source_match` False skips that mpnet check of the rewriter and the state's instrument test."""
     main_cfg, section = cfg["main_grid"], cfg[SECTION]
+    embedder = embedder or section["embedder"]
     bases, teachers, seeds, cells = grid(main_cfg)
     pairs, prompts = matched_pairs(run_dir, cells, sources, section["min_pairs"])
     if not prompts:
@@ -152,7 +155,7 @@ def analyze(run_dir, cfg, sources) -> dict:
             start = len(texts)
             texts.extend(first_words(t, budget) for t in values)
             index[(pid, key)] = list(range(start, len(texts)))
-    matrix = embed_texts(texts, section["embedder"])
+    matrix = embed_texts(texts, embedder)
 
     columns, hits = defaultdict(list), []
     for pid in prompts:
@@ -165,7 +168,7 @@ def analyze(run_dir, cfg, sources) -> dict:
 
             for k, v in student_columns(dist, bases, teachers, seeds).items():
                 columns[f"{stage} {k}"].append(v)
-        for cell in cells:
+        for cell in cells if source_match else ():
             sources_text = [clean(pair[0]) for pair in pairs[cell][pid]]
             hits += source_hits(rows_dense(matrix, index[(pid, (0, cell))]), rows_dense(matrix, index[(pid, (1, cell))]), sources_text)
 
@@ -180,8 +183,8 @@ def analyze(run_dir, cfg, sources) -> dict:
             summary[group][name] = {"estimate": value, "ci_low": low, "ci_high": high}
 
     pooled = summary["pooled"]
-    match = float(np.mean(hits))
-    if match < section["min_source_match"]:
+    match = float(np.mean(hits)) if source_match else None
+    if source_match and match < section["min_source_match"]:
         state = "INSTRUMENT_INVALID"
     elif pooled["S written"]["ci_low"] <= 0:
         state = "NO_SHARED_EFFECT"
@@ -191,7 +194,7 @@ def analyze(run_dir, cfg, sources) -> dict:
     return {
         "state": state,
         "rewriter": section["rewriter"],
-        "embedder": section["embedder"],
+        "embedder": embedder,
         "prompts_used": len(prompts),
         "answers_used": sum(len(pairs[c][p]) for c in cells for p in prompts),
         "source_match": match,

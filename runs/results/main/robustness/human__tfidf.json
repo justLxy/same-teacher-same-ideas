@@ -1,0 +1,274 @@
+{
+  "analysis": "human",
+  "note": "robustness embedder (main_robustness); reported with no state, and source match is not repeated",
+  "family": "human",
+  "embedder": "tfidf",
+  "rewriter": "gpt_oss",
+  "students": {
+    "X|deepseek|0": "X__deepseek__s0",
+    "X|gemma|0": "X__gemma__s0",
+    "X|glm|0": "X__glm__s0",
+    "X|deepseek|1": "X__deepseek__s1",
+    "X|gemma|1": "X__gemma__s1",
+    "X|glm|1": "X__glm__s1",
+    "X|deepseek|2": "X__deepseek__s2",
+    "X|gemma|2": "X__gemma__s2",
+    "X|glm|2": "X__glm__s2",
+    "Y|deepseek|0": "Y__deepseek__s0",
+    "Y|gemma|0": "Y__gemma__s0",
+    "Y|glm|0": "Y__glm__s0",
+    "Y|deepseek|1": "Y__deepseek__s1",
+    "Y|gemma|1": "Y__gemma__s1",
+    "Y|glm|1": "Y__glm__s1",
+    "Y|deepseek|2": "Y__deepseek__s2",
+    "Y|gemma|2": "Y__gemma__s2",
+    "Y|glm|2": "Y__glm__s2",
+    "Z|deepseek|0": "Z__deepseek__s0",
+    "Z|gemma|0": "Z__gemma__s0",
+    "Z|glm|0": "Z__glm__s0",
+    "Z|deepseek|1": "Z__deepseek__s1",
+    "Z|gemma|1": "Z__gemma__s1",
+    "Z|glm|1": "Z__glm__s1",
+    "Z|deepseek|2": "Z__deepseek__s2",
+    "Z|gemma|2": "Z__gemma__s2",
+    "Z|glm|2": "Z__glm__s2",
+    "X|human|0": "X__human__s0",
+    "X|human|1": "X__human__s1",
+    "Y|human|0": "Y__human__s0",
+    "Y|human|1": "Y__human__s1",
+    "Z|human|0": "Z__human__s0",
+    "Z|human|1": "Z__human__s1"
+  },
+  "prompts_used": 187,
+  "answers_used": 92060,
+  "source_match": null,
+  "written G deepseek": {
+    "estimate": 0.030665385716679462,
+    "ci_low": 0.027209575061476574,
+    "ci_high": 0.034462376585781336
+  },
+  "written G gemma": {
+    "estimate": 0.03298081086146242,
+    "ci_low": 0.029396788461416204,
+    "ci_high": 0.03669454963546754
+  },
+  "written G glm": {
+    "estimate": 0.026251345388989943,
+    "ci_low": 0.022764110557892386,
+    "ci_high": 0.030103186293045342
+  },
+  "written G human": {
+    "estimate": 0.009772017615928573,
+    "ci_low": 0.007725356615960713,
+    "ci_high": 0.012202648880265838
+  },
+  "written G teachers": {
+    "estimate": 0.029965847322377278,
+    "ci_low": 0.02667411525893901,
+    "ci_high": 0.033536097828272333
+  },
+  "written G human - teachers": {
+    "estimate": -0.020193829706448705,
+    "ci_low": -0.02359364679718838,
+    "ci_high": -0.017051307915744565
+  },
+  "written S human-deepseek": {
+    "estimate": 0.030258064984409132,
+    "ci_low": 0.02716246562840706,
+    "ci_high": 0.03339503195576591
+  },
+  "written carryover human-deepseek": {
+    "estimate": 0.674492452045817,
+    "ci_low": 0.6498459305920049,
+    "ci_high": 0.699208214711684
+  },
+  "written S human-gemma": {
+    "estimate": 0.034003075616897464,
+    "ci_low": 0.031132856698636805,
+    "ci_high": 0.03692211402275905
+  },
+  "written carryover human-gemma": {
+    "estimate": 0.6765511099829457,
+    "ci_low": 0.6500005289422319,
+    "ci_high": 0.701037248665425
+  },
+  "written S human-glm": {
+    "estimate": 0.025410492037937,
+    "ci_low": 0.02271409703635528,
+    "ci_high": 0.02825700516286609
+  },
+  "written carryover human-glm": {
+    "estimate": 0.6776022168956148,
+    "ci_low": 0.6482427062680216,
+    "ci_high": 0.7062288793736031
+  },
+  "written S human pooled": {
+    "estimate": 0.0298905442130812,
+    "ci_low": 0.02713638842996463,
+    "ci_high": 0.032667999113189655
+  },
+  "written carryover human pooled": {
+    "estimate": 0.6761519616080683,
+    "ci_low": 0.6523751368393701,
+    "ci_high": 0.6998287723930131
+  },
+  "written S teacher pairs": {
+    "estimate": 0.01358282317369351,
+    "ci_low": 0.012349991614900269,
+    "ci_high": 0.014870479210926872
+  },
+  "written carryover teacher pairs": {
+    "estimate": 0.602013354581136,
+    "ci_low": 0.5825953188017926,
+    "ci_high": 0.6203737031410943
+  },
+  "written carryover human - teacher pairs": {
+    "estimate": 0.07413860702693231,
+    "ci_low": 0.05123386013062562,
+    "ci_high": 0.09719589502316137
+  },
+  "rewritten G deepseek": {
+    "estimate": 0.023779887482889842,
+    "ci_low": 0.021251034420197486,
+    "ci_high": 0.026652055209293677
+  },
+  "rewritten G gemma": {
+    "estimate": 0.024563626406495787,
+    "ci_low": 0.02185148451615351,
+    "ci_high": 0.027352738658796578
+  },
+  "rewritten G glm": {
+    "estimate": 0.020086790045764538,
+    "ci_low": 0.017581782504159132,
+    "ci_high": 0.022932024547970418
+  },
+  "rewritten G human": {
+    "estimate": 0.006975707246263809,
+    "ci_low": 0.005777967178415864,
+    "ci_high": 0.008407363146289646
+  },
+  "rewritten G teachers": {
+    "estimate": 0.02281010131171672,
+    "ci_low": 0.02043374522085237,
+    "ci_high": 0.02548406030081347
+  },
+  "rewritten G human - teachers": {
+    "estimate": -0.015834394065452912,
+    "ci_low": -0.018263545161662568,
+    "ci_high": -0.01356329946950044
+  },
+  "rewritten S human-deepseek": {
+    "estimate": 0.019838985758321208,
+    "ci_low": 0.017950798583730197,
+    "ci_high": 0.021770436198313384
+  },
+  "rewritten carryover human-deepseek": {
+    "estimate": 0.6530844599732499,
+    "ci_low": 0.6246367179915775,
+    "ci_high": 0.6797026946227155
+  },
+  "rewritten S human-gemma": {
+    "estimate": 0.022865918873833185,
+    "ci_low": 0.020968042291242037,
+    "ci_high": 0.024749235955637324
+  },
+  "rewritten carryover human-gemma": {
+    "estimate": 0.6630298274166148,
+    "ci_low": 0.6364224006492999,
+    "ci_high": 0.688669224551713
+  },
+  "rewritten S human-glm": {
+    "estimate": 0.01737094550909634,
+    "ci_low": 0.015238700157574883,
+    "ci_high": 0.019593366845692635
+  },
+  "rewritten carryover human-glm": {
+    "estimate": 0.6602410074952455,
+    "ci_low": 0.6175631033680589,
+    "ci_high": 0.6982019224270315
+  },
+  "rewritten S human pooled": {
+    "estimate": 0.02002528338041691,
+    "ci_low": 0.01824170622020859,
+    "ci_high": 0.021818586278227248
+  },
+  "rewritten carryover human pooled": {
+    "estimate": 0.6589114784801857,
+    "ci_low": 0.631055671659232,
+    "ci_high": 0.6849067084057329
+  },
+  "rewritten S teacher pairs": {
+    "estimate": 0.008763581426998837,
+    "ci_low": 0.00790993865545724,
+    "ci_high": 0.00965187429362413
+  },
+  "rewritten carryover teacher pairs": {
+    "estimate": 0.5742224838979256,
+    "ci_low": 0.5476762019590354,
+    "ci_high": 0.5992906487332832
+  },
+  "rewritten carryover human - teacher pairs": {
+    "estimate": 0.08468899458226009,
+    "ci_low": 0.062397569714603154,
+    "ci_high": 0.10775251369246074
+  },
+  "R human-deepseek": {
+    "estimate": 0.6556594338912124,
+    "ci_low": 0.6233675764980632,
+    "ci_high": 0.6849070279246814
+  },
+  "R human-gemma": {
+    "estimate": 0.6724661948659201,
+    "ci_low": 0.643516901846499,
+    "ci_high": 0.7032016474216862
+  },
+  "R human-glm": {
+    "estimate": 0.6836131108032898,
+    "ci_low": 0.642421058063171,
+    "ci_high": 0.7257832931531778
+  },
+  "R human pooled": {
+    "estimate": 0.6699537899899832,
+    "ci_low": 0.6414117663485721,
+    "ci_high": 0.6985672069522092
+  },
+  "R teacher pairs": {
+    "estimate": 0.6451958709122914,
+    "ci_low": 0.6198461395847124,
+    "ci_high": 0.6682853872564888
+  },
+  "style": {
+    "deepseek written": {
+      "mean_words": 61.21787931857985,
+      "formatted_share": 0.20689380671867538
+    },
+    "deepseek rewritten": {
+      "mean_words": 78.79374303454864,
+      "formatted_share": 0.0767393727113517
+    },
+    "gemma written": {
+      "mean_words": 83.05578405143154,
+      "formatted_share": 0.401150021962225
+    },
+    "gemma rewritten": {
+      "mean_words": 93.50217625683824,
+      "formatted_share": 0.09136285588787287
+    },
+    "glm written": {
+      "mean_words": 80.06023952572315,
+      "formatted_share": 0.39346675685353916
+    },
+    "glm rewritten": {
+      "mean_words": 94.09768034058807,
+      "formatted_share": 0.09521346436955397
+    },
+    "human written": {
+      "mean_words": 88.57649164677804,
+      "formatted_share": 0.4747613365155131
+    },
+    "human rewritten": {
+      "mean_words": 87.07321002386635,
+      "formatted_share": 0.07106205250596659
+    }
+  }
+}

@@ -21,7 +21,7 @@ import numpy as np
 
 from sameteacher.analysis.extra_baselines import family_texts
 from sameteacher.analysis.main_shared_teacher import prompt_table
-from sameteacher.analysis.teacher_match import embed_cached
+from sameteacher.analysis.teacher_match import embed_for
 from sameteacher.core.config import add_common_args, load_yaml, read_json, write_json
 from sameteacher.core.grid import main_cells
 from sameteacher.core.lock import verify_lock
@@ -132,8 +132,11 @@ def state(summary) -> str:
     return "SUPPORTED" if content and style else "PARTIAL" if content or style else "NOT_SUPPORTED"
 
 
-def analyze(run_dir, cfg) -> dict:
+def analyze(run_dir, cfg, embedder=None, source_match: bool = True) -> dict:
+    """The locked analysis; `embedder` replaces the section's embedder (main_robustness), and
+    `source_match` False skips that mpnet check of the rewriter."""
     section, norm = cfg[SECTION], cfg[h2.SECTION]
+    embedder = embedder or section["embedder"]
     groups, refs = design(run_dir, cfg)
     keys = list(groups)
     students = [(stage, name, key) for key, (stage, name) in groups.items()]
@@ -142,14 +145,14 @@ def analyze(run_dir, cfg) -> dict:
     if not prompts:
         raise SystemExit("No prompt has enough usable rewrites for every H3 and reference student. Check the samples and rewrites.")
     texts, index = family_texts(pairs, prompts, keys, norm["min_words"])
-    matrix = embed_cached(run_dir, texts, index, section["embedder"], name="main_h3",
-                          note="Rows are the h3_analysis texts, both stages, one word budget per prompt. Keys: prompt|stage|base|source|seed.")
+    matrix = embed_for(run_dir, texts, index, embedder, "main_h3",
+                       note="Rows are the h3_analysis texts, both stages, one word budget per prompt. Keys: prompt|stage|base|source|seed.")
 
     columns, hits = defaultdict(list), defaultdict(list)
     for pid in prompts:
         for name, value in prompt_columns(matrix, index, pid, pairs, keys, refs).items():
             columns[name].append(value)
-        for key in refs:
+        for key in refs if source_match else ():
             written, rewritten = (rows_dense(matrix, index[(pid, (stage, *key))]) for stage in STAGES)
             hits[key] += source_hits(written, rewritten, [clean(p[0]) for p in pairs[key][pid]])
 
@@ -166,12 +169,12 @@ def analyze(run_dir, cfg) -> dict:
         style[student] = {"mean_words": mean(len(t.split()) for t in written), "formatted_share": mean(formatted(t) for t in written)}
     return {
         "state": state(summary),
-        "embedder": section["embedder"],
+        "embedder": embedder,
         "rewriter": norm["rewriter"],
         "prompts_used": len(prompts),
         "answers_used": sum(len(pairs[k][p]) for k in keys for p in prompts),
-        "source_match": mean(h for v in hits.values() for h in v),
-        "source_match_per_student": {refs[k][0]["student"]: mean(v) for k, v in hits.items()},
+        "source_match": mean(h for v in hits.values() for h in v) if source_match else None,
+        "source_match_per_student": {refs[k][0]["student"]: mean(v) for k, v in hits.items()} if source_match else None,
         "references": {refs[k][0]["student"]: {"content": [groups[g][1] for g in c], "style": [groups[g][1] for g in s]} for k, (_, c, s) in refs.items()},
         **summary,
         "style": style,

@@ -1,0 +1,392 @@
+{
+  "analysis": "scaling",
+  "note": "robustness embedder (main_robustness); reported with no state, and source match is not repeated",
+  "family": "scaling",
+  "embedder": "tfidf",
+  "rewriter": "gpt_oss",
+  "students": {
+    "X|deepseek|0": "X__deepseek__s0",
+    "X|gemma|0": "X__gemma__s0",
+    "X|deepseek|1": "X__deepseek__s1",
+    "X|gemma|1": "X__gemma__s1",
+    "X|deepseek|2": "X__deepseek__s2",
+    "X|gemma|2": "X__gemma__s2",
+    "Y|deepseek|0": "Y__deepseek__s0",
+    "Y|gemma|0": "Y__gemma__s0",
+    "Y|deepseek|1": "Y__deepseek__s1",
+    "Y|gemma|1": "Y__gemma__s1",
+    "Y|deepseek|2": "Y__deepseek__s2",
+    "Y|gemma|2": "Y__gemma__s2",
+    "X|deepseek|n500": "X__deepseek__n500__s0",
+    "X|deepseek|n1000": "X__deepseek__n1000__s0",
+    "X|deepseek|n2500": "X__deepseek__n2500__s0",
+    "X|gemma|n500": "X__gemma__n500__s0",
+    "X|gemma|n1000": "X__gemma__n1000__s0",
+    "X|gemma|n2500": "X__gemma__n2500__s0",
+    "Y|deepseek|n500": "Y__deepseek__n500__s0",
+    "Y|deepseek|n1000": "Y__deepseek__n1000__s0",
+    "Y|deepseek|n2500": "Y__deepseek__n2500__s0",
+    "Y|gemma|n500": "Y__gemma__n500__s0",
+    "Y|gemma|n1000": "Y__gemma__n1000__s0",
+    "Y|gemma|n2500": "Y__gemma__n2500__s0"
+  },
+  "prompts_used": 181,
+  "answers_used": 64819,
+  "source_match": null,
+  "written N": {
+    "estimate": 0.004407710151456298,
+    "ci_low": 0.0036545757010328053,
+    "ci_high": 0.0053077285023137724
+  },
+  "written S n500": {
+    "estimate": 0.02105837399866057,
+    "ci_low": 0.01665291634829716,
+    "ci_high": 0.026454226302213824
+  },
+  "written T n500": {
+    "estimate": 0.23308786326141223,
+    "ci_low": 0.20767314385603414,
+    "ci_high": 0.26248805381031515
+  },
+  "written carryover n500": {
+    "estimate": 0.09208658343225397,
+    "ci_low": 0.0761728727626472,
+    "ci_high": 0.10926055808899574
+  },
+  "written S/T n500": {
+    "estimate": 0.09034521876861183,
+    "ci_low": 0.07460359026381935,
+    "ci_high": 0.10745972206327353
+  },
+  "written S n1000": {
+    "estimate": 0.018689082987453177,
+    "ci_low": 0.014246321974253616,
+    "ci_high": 0.023634620358460836
+  },
+  "written T n1000": {
+    "estimate": 0.17319927463331178,
+    "ci_low": 0.15505453214687823,
+    "ci_high": 0.19340296781457939
+  },
+  "written carryover n1000": {
+    "estimate": 0.11072284947902233,
+    "ci_low": 0.08404692238518427,
+    "ci_high": 0.1377507177412983
+  },
+  "written S/T n1000": {
+    "estimate": 0.10790508809589822,
+    "ci_low": 0.08197937347788714,
+    "ci_high": 0.13405863869487356
+  },
+  "written S n2500": {
+    "estimate": 0.027215916863585047,
+    "ci_low": 0.02327564604307014,
+    "ci_high": 0.031611430911178386
+  },
+  "written T n2500": {
+    "estimate": 0.06502158892955763,
+    "ci_low": 0.0585015257677958,
+    "ci_high": 0.07282853586101992
+  },
+  "written carryover n2500": {
+    "estimate": 0.44900470671442416,
+    "ci_low": 0.41489389252580927,
+    "ci_high": 0.4813648829324288
+  },
+  "written S/T n2500": {
+    "estimate": 0.4185673914101042,
+    "ci_low": 0.38464097060246466,
+    "ci_high": 0.45040241852894713
+  },
+  "written S main": {
+    "estimate": 0.025398221845862635,
+    "ci_low": 0.022527419279323793,
+    "ci_high": 0.02857664098963732
+  },
+  "written T main": {
+    "estimate": 0.043220652866147194,
+    "ci_low": 0.03886791555308277,
+    "ci_high": 0.04796053930544593
+  },
+  "written carryover main": {
+    "estimate": 0.654375063301997,
+    "ci_low": 0.6236326319434625,
+    "ci_high": 0.6851592057748124
+  },
+  "written S/T main": {
+    "estimate": 0.5876408652252435,
+    "ci_low": 0.5587498314109034,
+    "ci_high": 0.6152180940444619
+  },
+  "written S n500 - main": {
+    "estimate": -0.004339847847202066,
+    "ci_low": -0.00818478711783121,
+    "ci_high": -8.732850885389564e-05
+  },
+  "written carryover n500 - main": {
+    "estimate": -0.5622884798697431,
+    "ci_low": -0.5934056757730165,
+    "ci_high": -0.5322022706159903
+  },
+  "written S n1000 - main": {
+    "estimate": -0.006709138858409458,
+    "ci_low": -0.010376684580530723,
+    "ci_high": -0.0030398451778598542
+  },
+  "written carryover n1000 - main": {
+    "estimate": -0.5436522138229747,
+    "ci_low": -0.5781059639652584,
+    "ci_high": -0.5122477843539197
+  },
+  "written S n2500 - main": {
+    "estimate": 0.0018176950177224115,
+    "ci_low": -0.0004780792535433034,
+    "ci_high": 0.004248432759419074
+  },
+  "written carryover n2500 - main": {
+    "estimate": -0.20537035658757286,
+    "ci_low": -0.24455798390648648,
+    "ci_high": -0.1694300010461133
+  },
+  "written S increasing": {
+    "estimate": 0.0,
+    "share_of_draws": 0.009
+  },
+  "rewritten N": {
+    "estimate": 0.003442875446286469,
+    "ci_low": 0.002770798223043414,
+    "ci_high": 0.004185749454161547
+  },
+  "rewritten S n500": {
+    "estimate": 0.01113821568063524,
+    "ci_low": 0.00775416756495649,
+    "ci_high": 0.014561764170948085
+  },
+  "rewritten T n500": {
+    "estimate": 0.15837492416894405,
+    "ci_low": 0.14276899492840656,
+    "ci_high": 0.17511523691738196
+  },
+  "rewritten carryover n500": {
+    "estimate": 0.07189097267133966,
+    "ci_low": 0.05067484620603293,
+    "ci_high": 0.09466792494199411
+  },
+  "rewritten S/T n500": {
+    "estimate": 0.07032815162552954,
+    "ci_low": 0.0495444734168776,
+    "ci_high": 0.0923926952521479
+  },
+  "rewritten S n1000": {
+    "estimate": 0.0092790486476053,
+    "ci_low": 0.0053837764316475864,
+    "ci_high": 0.01313155004501171
+  },
+  "rewritten T n1000": {
+    "estimate": 0.11794812080327391,
+    "ci_low": 0.10654501310815805,
+    "ci_high": 0.13004320180241574
+  },
+  "rewritten carryover n1000": {
+    "estimate": 0.08103601384090713,
+    "ci_low": 0.04652948339806476,
+    "ci_high": 0.11428886282057707
+  },
+  "rewritten S/T n1000": {
+    "estimate": 0.07867059334571222,
+    "ci_low": 0.045258700469116044,
+    "ci_high": 0.11092636463102198
+  },
+  "rewritten S n2500": {
+    "estimate": 0.016219356752024273,
+    "ci_low": 0.013708517831959737,
+    "ci_high": 0.01890809058713124
+  },
+  "rewritten T n2500": {
+    "estimate": 0.04428948052372934,
+    "ci_low": 0.039939649354638875,
+    "ci_high": 0.04906432901320763
+  },
+  "rewritten carryover n2500": {
+    "estimate": 0.39707967703248004,
+    "ci_low": 0.35635307033673375,
+    "ci_high": 0.43749990517254045
+  },
+  "rewritten S/T n2500": {
+    "estimate": 0.36621239536404804,
+    "ci_low": 0.3272881142934362,
+    "ci_high": 0.4035012178682911
+  },
+  "rewritten S main": {
+    "estimate": 0.01563886408292562,
+    "ci_low": 0.013677241225361384,
+    "ci_high": 0.01773524506983271
+  },
+  "rewritten T main": {
+    "estimate": 0.02811474463675727,
+    "ci_low": 0.02530168203856156,
+    "ci_high": 0.030934128629950996
+  },
+  "rewritten carryover main": {
+    "estimate": 0.633874310948679,
+    "ci_low": 0.5847193130772554,
+    "ci_high": 0.6839810116368109
+  },
+  "rewritten S/T main": {
+    "estimate": 0.5562513295062741,
+    "ci_low": 0.5130782996398946,
+    "ci_high": 0.5988103372086567
+  },
+  "rewritten S n500 - main": {
+    "estimate": -0.004500648402290379,
+    "ci_low": -0.008153832720423547,
+    "ci_high": -0.0008672868815030928
+  },
+  "rewritten carryover n500 - main": {
+    "estimate": -0.5619833382773393,
+    "ci_low": -0.609844770901883,
+    "ci_high": -0.5125948926081939
+  },
+  "rewritten S n1000 - main": {
+    "estimate": -0.006359815435320319,
+    "ci_low": -0.009923793868069278,
+    "ci_high": -0.002963274203661298
+  },
+  "rewritten carryover n1000 - main": {
+    "estimate": -0.5528382971077719,
+    "ci_low": -0.607741498276932,
+    "ci_high": -0.5024670597347438
+  },
+  "rewritten S n2500 - main": {
+    "estimate": 0.0005804926690986534,
+    "ci_low": -0.0011499880394804706,
+    "ci_high": 0.0023658940614148345
+  },
+  "rewritten carryover n2500 - main": {
+    "estimate": -0.23679463391619893,
+    "ci_low": -0.28989134856763715,
+    "ci_high": -0.18873547226678272
+  },
+  "rewritten S increasing": {
+    "estimate": 0.0,
+    "share_of_draws": 0.0485
+  },
+  "R n500": {
+    "estimate": 0.5289209737344248,
+    "ci_low": 0.38434300066487764,
+    "ci_high": 0.6673743220070089
+  },
+  "R n1000": {
+    "estimate": 0.49649566294048475,
+    "ci_low": 0.3517756826808851,
+    "ci_high": 0.6037220238139088
+  },
+  "R n2500": {
+    "estimate": 0.5959511426097059,
+    "ci_low": 0.5512903590039968,
+    "ci_high": 0.6396096416281336
+  },
+  "R main": {
+    "estimate": 0.6157464163371417,
+    "ci_low": 0.5789910600678106,
+    "ci_high": 0.6516145693176126
+  },
+  "style": {
+    "deepseek main seed 0 written": {
+      "mean_words": 62.267701978184505,
+      "formatted_share": 0.20743205768164172
+    },
+    "deepseek main seed 0 rewritten": {
+      "mean_words": 78.65002773155851,
+      "formatted_share": 0.07912738029210575
+    },
+    "deepseek main seed 1 written": {
+      "mean_words": 62.010936051899904,
+      "formatted_share": 0.19110287303058388
+    },
+    "deepseek main seed 1 rewritten": {
+      "mean_words": 78.46765523632993,
+      "formatted_share": 0.07747914735866543
+    },
+    "deepseek main seed 2 written": {
+      "mean_words": 62.03438713255685,
+      "formatted_share": 0.19800332778702162
+    },
+    "deepseek main seed 2 rewritten": {
+      "mean_words": 78.13662414494361,
+      "formatted_share": 0.07432057681641709
+    },
+    "deepseek n1000 written": {
+      "mean_words": 62.976335736735074,
+      "formatted_share": 0.21149935293030134
+    },
+    "deepseek n1000 rewritten": {
+      "mean_words": 81.81456831207247,
+      "formatted_share": 0.07986688851913477
+    },
+    "deepseek n2500 written": {
+      "mean_words": 63.57897653796416,
+      "formatted_share": 0.2104193607980787
+    },
+    "deepseek n2500 rewritten": {
+      "mean_words": 80.92351745797156,
+      "formatted_share": 0.0831331978570109
+    },
+    "deepseek n500 written": {
+      "mean_words": 64.1172019195275,
+      "formatted_share": 0.2201919527500923
+    },
+    "deepseek n500 rewritten": {
+      "mean_words": 83.05592469545958,
+      "formatted_share": 0.07936507936507936
+    },
+    "gemma main seed 0 written": {
+      "mean_words": 83.4887037037037,
+      "formatted_share": 0.39740740740740743
+    },
+    "gemma main seed 0 rewritten": {
+      "mean_words": 92.54870370370371,
+      "formatted_share": 0.08888888888888889
+    },
+    "gemma main seed 1 written": {
+      "mean_words": 83.4628763792781,
+      "formatted_share": 0.39573592668786234
+    },
+    "gemma main seed 1 rewritten": {
+      "mean_words": 92.36412941836544,
+      "formatted_share": 0.08958294370675145
+    },
+    "gemma main seed 2 written": {
+      "mean_words": 83.20375534485964,
+      "formatted_share": 0.384829894032348
+    },
+    "gemma main seed 2 rewritten": {
+      "mean_words": 92.16043874326083,
+      "formatted_share": 0.08570366239077895
+    },
+    "gemma n1000 written": {
+      "mean_words": 83.62123730378578,
+      "formatted_share": 0.4123730378578024
+    },
+    "gemma n1000 rewritten": {
+      "mean_words": 94.37673130193906,
+      "formatted_share": 0.1041551246537396
+    },
+    "gemma n2500 written": {
+      "mean_words": 83.7260628465804,
+      "formatted_share": 0.41146025878003695
+    },
+    "gemma n2500 rewritten": {
+      "mean_words": 92.51515711645102,
+      "formatted_share": 0.09685767097966728
+    },
+    "gemma n500 written": {
+      "mean_words": 83.32151431209603,
+      "formatted_share": 0.38337950138504157
+    },
+    "gemma n500 rewritten": {
+      "mean_words": 92.38873499538319,
+      "formatted_share": 0.10064635272391505
+    }
+  }
+}

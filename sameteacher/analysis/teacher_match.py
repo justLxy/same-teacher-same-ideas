@@ -63,6 +63,13 @@ def embed_cached(run_dir, texts, index, embedder: str, name: str = "main_h1", no
     return matrix
 
 
+def embed_for(run_dir, texts, index, embedder: str, name: str, note: str = ""):
+    """Sparse tf-idf rows, which are never densified (the bigram vocabulary is large), or cached dense embeddings."""
+    if embedder == "tfidf":
+        return embed_texts(texts, embedder)
+    return embed_cached(run_dir, texts, index, embedder, name=name, note=note)
+
+
 def prompt_stats(matrix, index, pid, students, teachers) -> dict:
     """Per-prompt energy and centroid distances from every student to every teacher, and spreads."""
     keys = students + teachers

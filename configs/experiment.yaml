@@ -497,3 +497,175 @@ main_human_eval:
   bootstrap: 2000
   bootstrap_seed: 0
   ci_level: 0.95
+
+main_robustness:
+  # Robustness to the embedder (Proposal, Evaluation: the distance metrics repeated with
+  # bge-small and TF-IDF). H1 is repeated in main_shared_teacher (robustness_embedders). This
+  # section repeats the other energy-distance analyses with the same embedders. Each analysis
+  # keeps its locked section's answers, prompts, word budgets, bootstrap draws and quantities,
+  # and only the embedder changes:
+  #   h2       main_style_norm: S and carryover as written and rewritten, and R
+  #   h3       h3_analysis: the written and normalized indices (length and formatting use no
+  #            embedder and come out unchanged)
+  #   scaling, human, untuned   extra_analysis
+  # TF-IDF is fit on each analysis's own texts, both stages together, as in main_shared_teacher.
+  # Source match is an mpnet check of the rewriter and is not repeated. Reported, with no state:
+  # the rule of each locked section is applied to these embedders as a reading only. Locked
+  # before any of these analyses runs on these embedders.
+  embedders: [BAAI/bge-small-en-v1.5, tfidf]
+  analyses: [h2, h3, scaling, human, untuned]
+
+main_qualitative:
+  # Per-category breakdown and qualitative examples (Proposal, Evaluation: describe what students
+  # inherit on the prompts with the largest shared effect). Locked before any per-category value
+  # or example is computed.
+  # Category: the Infinity-Chat category of each test prompt. Categories with at least
+  # min_prompts H1 prompts are reported on their own; the others are pooled as "other". Per
+  # category:
+  #   S                     mean of the per-prompt H1 S (main_shared_teacher, mpnet, as stored
+  #                         in h1.json) over the category's H1 prompts
+  #   S written, S rewritten, R   the same on main_style_norm's answers and prompts (mpnet, its
+  #                         word budgets); R = mean S rewritten / mean S written
+  # Intervals bootstrap prompts within the category (bootstrap draws from bootstrap_seed).
+  # Examples: the top_k H1 prompts by per-prompt S. For each, the full written usable answers of
+  # the three teachers and of the 27 main-grid students are embedded with the embedder below.
+  # Groups: each teacher, and each base's students of one teacher (seeds pooled). Reported per
+  # group: the examples_per_group answers with the highest mean cosine similarity to the rest of
+  # the group (its most central answers), and the share of the group's answers whose nearest
+  # teacher centroid belongs to each teacher. We write the descriptions of what students inherit
+  # from these answers. Reported, with no state.
+  min_prompts: 8
+  top_k: 10
+  examples_per_group: 2
+  embedder: sentence-transformers/all-mpnet-base-v2
+  bootstrap: 2000
+  bootstrap_seed: 0
+  ci_level: 0.95
+
+stretch_students:
+  # Stretch goals (Proposal, Methods). Locked before any of these runs is trained or sampled.
+  # persistence: does the shared-teacher effect survive a second SFT stage on human-written answers?
+  #   Each main-grid student below continues training its own LoRA adapter (same rank and alpha,
+  #   new AdamW optimizer and schedule) on the extra_students human file (Dolly's human response
+  #   to every main-grid training prompt) with the main_grid recipe (max_steps, batch, learning
+  #   rate, max_length) and its main-grid LoRA seed, so the second stage is as long as the first.
+  #   Sampled like main-grid students (main_grid samples_per_prompt, gen_batch, prompt format and
+  #   the main sampling settings) on the main test prompts. Students are named
+  #   <base>__<teacher>__s<seed>__then_human, stage `persist`.
+  persistence:
+    bases: [X, Y]
+    teachers: [deepseek, gemma]
+    seeds: [0, 1]
+  # released: released models distilled from one teacher onto two base families, against
+  #   released models of the same two base families tuned by other developers. The two families
+  #   are rows (qwen, llama) and the tuning source is the column (r1 for DeepSeek-R1, other).
+  #   Each model gets its own chat template with no added system prompt (the template's default,
+  #   if any, stays), and the test prompt as the user turn. All four are sampled with the same
+  #   settings below (DeepSeek's recommended temperature and top_p for the R1 distills, used for
+  #   every model so sampling is not part of the comparison). For models that reason, the answer
+  #   is the text after the last </think>; a sample whose reasoning does not close within
+  #   max_new_tokens has no answer. Answers are cut to their first answer_words words, so the
+  #   rewriter's token limit is not reached. Prompts: the first `prompts` prompts of the main test
+  #   split (the split is a random draw from the pool), written to runs/prompts/stretch_released.jsonl.
+  #   Stage `released`, students named released__<family>__<source>.
+  released:
+    models:
+      qwen:
+        r1: deepseek-ai/DeepSeek-R1-Distill-Qwen-7B     # base Qwen2.5-Math-7B
+        other: Qwen/Qwen2.5-7B-Instruct                 # base Qwen2.5-7B, Qwen's own post-training
+      llama:
+        r1: deepseek-ai/DeepSeek-R1-Distill-Llama-8B    # base Llama-3.1-8B
+        other: allenai/Llama-3.1-Tulu-3-8B              # base Llama-3.1-8B, Ai2's Tulu 3 post-training
+    reasoning: [r1]
+    prompts: 100
+    samples_per_prompt: 20
+    gen_batch: 20
+    temperature: 0.6
+    top_p: 0.95
+    max_new_tokens: 2048
+    answer_words: 150
+
+stretch_analysis:
+  # Analyses of the stretch_students runs. Locked before any of their answers is read. Answers
+  # are taken and rewritten as in extra_analysis (main_style_norm rewriter, instruction,
+  # samples_per_cell, min_pairs and min_words; stretch students into
+  # runs/style_norm/stretch_students.jsonl, main-grid and human-data students reuse their
+  # rewrites). Each family has its own prompts and one word budget per prompt across both stages
+  # and every compared student; d is the energy distance on embeddings, averaged over prompts;
+  # every quantity is given as written and rewritten, with R = rewritten / written for each S.
+  #
+  # persistence: bases X, Y; teachers a = deepseek, b = gemma; seeds 0, 1. Three groups: the
+  #   main-grid students (before), their second-stage students (after), and the human-data
+  #   students of extra_students on X and Y (human). For a group F with students x<-t seed i:
+  #     cross_F(p, q) = mean over seeds i, j of [d(X<-p i, Y<-q j) + d(Y<-p i, X<-q j)]/2
+  #     S_F = [cross_F(a, b) + cross_F(b, a)]/2 - [cross_F(a, a) + cross_F(b, b)]/2
+  #     T_F = mean over bases and seeds i, j of d(x<-a i, x<-b j)
+  #     N_F = mean over bases and teachers of d(x<-t 0, x<-t 1)
+  #     carryover_F = S_F / (T_F - N_F);  G_F = [cross_F(a, a) + cross_F(b, b)]/2 - N_F
+  #     G human = mean over seeds i, j of d(X<-h i, Y<-h j) - N human
+  #     H_F = mean over bases, teachers and seeds i, j of d(x<-t i, x<-h j), the distance to the
+  #           human-data students on the same base
+  #   Reported: these for before and after; P = S_after / S_before; S_after - S_before;
+  #   carryover_after - carryover_before; T_after / T_before; G_after - G_before;
+  #   G_after - G human; H_after / H_before.
+  #   Reading (written stage; the same reading is also reported for the rewritten stage):
+  #     NO_EFFECT_BEFORE  if the S_before interval reaches 0
+  #     ERASED            else if the S_after interval reaches 0
+  #     SURVIVES          else if the lower end of the P interval is at least survive_at
+  #     MOSTLY_ERASED     else if the upper end of the P interval is at most erased_at
+  #     PARTLY_SURVIVES   otherwise
+  # released: the four models of stretch_students.released, rows qwen, llama, columns r1, other.
+  #     S = [d(qwen r1, llama other) + d(qwen other, llama r1)]/2
+  #         - [d(qwen r1, llama r1) + d(qwen other, llama other)]/2
+  #     shared minus other = d(qwen other, llama other) - d(qwen r1, llama r1)
+  #     T = [d(qwen r1, qwen other) + d(llama r1, llama other)]/2, and S / T (no N: one run each)
+  #   S is the main-grid S with "other" as a second source. It does not depend on how far each
+  #   model is from all the others, and it would also be positive if the two "other" models shared
+  #   a source, so shared minus other is reported beside it. Reading: SUPPORTED if the written S
+  #   interval is above 0, NOT_SUPPORTED otherwise; when SUPPORTED, R is read with the
+  #   main_style_norm thresholds (CONTENT if the lower end of the R interval is at least most_low,
+  #   VOICE if the upper end is at most voice_high, MIXED otherwise).
+  #   Also reported for every family: the source match of the rewrites (as in main_style_norm),
+  #   the mean words and formatted share of each group, written and rewritten, and for the
+  #   released models the share of samples with an answer and the mean words of reasoning.
+  survive_at: 0.5
+  erased_at: 0.25
+  embedder: sentence-transformers/all-mpnet-base-v2
+  bootstrap: 2000
+  bootstrap_seed: 0
+  ci_level: 0.95
+
+main_human_eval_followup:
+  # Follow-up to main_human_eval. Designed after its result was seen (same minus different
+  # -0.093 [-0.253, +0.067]) and locked before any number below is computed, so it is reported
+  # as a follow-up check. It asks whether the embedders see a same-teacher advantage on the 150
+  # labeled pairs, and how large a difference in the human label the grid-wide embedding
+  # advantage implies for one answer pair.
+  #   pairs  For each embedder, the cosine of the two answers of each labeled pair (the full
+  #          answers shown to the annotators, cleaned as in main_human_eval; TF-IDF fit on these
+  #          300 answers). Mean for same and for different pairs, and same minus different, with a
+  #          bootstrap over pairs that resamples each kind on its own, as main_human_eval does.
+  #   link   Logistic regression of the majority label (Y = 1) on the link_embedder cosine over
+  #          the 150 pairs (maximum likelihood, no penalty). Implied difference on the labeled
+  #          pairs: mean fitted P(Y) over same pairs minus over different pairs.
+  #   grid   On the H1 prompts, every pair of usable answers (is_answer; full, cleaned) from two
+  #          main-grid students on different bases. Per prompt, the 9 same cells (base pair x
+  #          teacher) and the 9 different cells (base pair x teacher pair, both assignments of
+  #          the two teachers to the two bases, half weight each); each cell averages its 9 seed
+  #          pairs equally and, within a seed pair, every answer pair equally; cells within a
+  #          kind and prompts weigh equally. This is the distribution the labeled pairs were drawn
+  #          from. Reported: mean link_embedder cosine for same and different, same minus
+  #          different; the implied human-label difference, mean fitted P(Y) over same pairs minus
+  #          over different pairs, with cosines binned at bin_width; and the pairs per kind that a
+  #          two-sided test at alpha needs for the given power to detect the implied difference
+  #          (normal approximation at the observed overall same-idea rate).
+  # Intervals: one bootstrap; each draw resamples the labeled pairs within kind (pairs and link,
+  # refitting the regression) and the H1 prompts (grid). Reported with no state.
+  embedders: [sentence-transformers/all-mpnet-base-v2, BAAI/bge-small-en-v1.5, tfidf]
+  link_embedder: sentence-transformers/all-mpnet-base-v2
+  bin_width: 0.005
+  power: 0.8
+  alpha: 0.05
+  bootstrap: 2000
+  bootstrap_seed: 0
+  ci_level: 0.95

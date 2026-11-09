@@ -1,0 +1,18 @@
+{
+  "section": "main_robustness",
+  "sha256": "cf34f1c33f1cd8fab8d7eef49455296f169318156321b957b93c3d4664683e82",
+  "locked_at": "2026-11-08T17:35:13.564712+00:00",
+  "values": {
+    "embedders": [
+      "BAAI/bge-small-en-v1.5",
+      "tfidf"
+    ],
+    "analyses": [
+      "h2",
+      "h3",
+      "scaling",
+      "human",
+      "untuned"
+    ]
+  }
+}

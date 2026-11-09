@@ -1,0 +1,14 @@
+{
+  "section": "main_qualitative",
+  "sha256": "410abdaab4b3ed0db694bcac1d4d0022a516076cf8c8e64546e04fa1b0363b30",
+  "locked_at": "2026-11-08T17:41:26.053950+00:00",
+  "values": {
+    "min_prompts": 8,
+    "top_k": 10,
+    "examples_per_group": 2,
+    "embedder": "sentence-transformers/all-mpnet-base-v2",
+    "bootstrap": 2000,
+    "bootstrap_seed": 0,
+    "ci_level": 0.95
+  }
+}

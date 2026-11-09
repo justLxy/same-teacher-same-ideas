@@ -1,0 +1,292 @@
+{
+  "analysis": "untuned",
+  "note": "robustness embedder (main_robustness); reported with no state, and source match is not repeated",
+  "family": "untuned",
+  "embedder": "tfidf",
+  "rewriter": "gpt_oss",
+  "students": {
+    "X|deepseek|0": "X__deepseek__s0",
+    "X|gemma|0": "X__gemma__s0",
+    "X|glm|0": "X__glm__s0",
+    "X|deepseek|1": "X__deepseek__s1",
+    "X|gemma|1": "X__gemma__s1",
+    "X|glm|1": "X__glm__s1",
+    "X|deepseek|2": "X__deepseek__s2",
+    "X|gemma|2": "X__gemma__s2",
+    "X|glm|2": "X__glm__s2",
+    "Y|deepseek|0": "Y__deepseek__s0",
+    "Y|gemma|0": "Y__gemma__s0",
+    "Y|glm|0": "Y__glm__s0",
+    "Y|deepseek|1": "Y__deepseek__s1",
+    "Y|gemma|1": "Y__gemma__s1",
+    "Y|glm|1": "Y__glm__s1",
+    "Y|deepseek|2": "Y__deepseek__s2",
+    "Y|gemma|2": "Y__gemma__s2",
+    "Y|glm|2": "Y__glm__s2",
+    "Z|deepseek|0": "Z__deepseek__s0",
+    "Z|gemma|0": "Z__gemma__s0",
+    "Z|glm|0": "Z__glm__s0",
+    "Z|deepseek|1": "Z__deepseek__s1",
+    "Z|gemma|1": "Z__gemma__s1",
+    "Z|glm|1": "Z__glm__s1",
+    "Z|deepseek|2": "Z__deepseek__s2",
+    "Z|gemma|2": "Z__gemma__s2",
+    "Z|glm|2": "Z__glm__s2",
+    "X|untuned|0": "X__untuned",
+    "Y|untuned|0": "Y__untuned",
+    "Z|untuned|0": "Z__untuned"
+  },
+  "prompts_used": 187,
+  "answers_used": 83657,
+  "source_match": null,
+  "written U": {
+    "estimate": 0.034908084769639684,
+    "ci_low": 0.029092971785756074,
+    "ci_high": 0.04206055685014625
+  },
+  "written same": {
+    "estimate": 0.03396535529437548,
+    "ci_low": 0.030438368708538947,
+    "ci_high": 0.03773407943086603
+  },
+  "written different": {
+    "estimate": 0.04749756394019915,
+    "ci_low": 0.04334734745766141,
+    "ci_high": 0.05209232486595846
+  },
+  "written N": {
+    "estimate": 0.004043215474517438,
+    "ci_low": 0.0033631430223642752,
+    "ci_high": 0.004707620733988224
+  },
+  "written G same": {
+    "estimate": 0.02992213981985804,
+    "ci_low": 0.026674093785170997,
+    "ci_high": 0.03345151768576627
+  },
+  "written G different": {
+    "estimate": 0.04345434846568171,
+    "ci_low": 0.039623374207986985,
+    "ci_high": 0.04775806162329413
+  },
+  "written U - G same": {
+    "estimate": 0.004985944949781645,
+    "ci_low": 0.0003326777344669705,
+    "ci_high": 0.01089542524609866
+  },
+  "written U - G different": {
+    "estimate": -0.008546263696042028,
+    "ci_low": -0.013403755550503195,
+    "ci_high": -0.0024664353619947414
+  },
+  "written U X-Y": {
+    "estimate": 0.02623654767801212,
+    "ci_low": 0.022708503856506697,
+    "ci_high": 0.030063411667473252
+  },
+  "written G same X-Y": {
+    "estimate": 0.028627282995671938,
+    "ci_low": 0.025346767303631338,
+    "ci_high": 0.03214911615552269
+  },
+  "written U - G same X-Y": {
+    "estimate": -0.0023907353176598166,
+    "ci_low": -0.006031679327697643,
+    "ci_high": 0.0012394431920176726
+  },
+  "written U X-Z": {
+    "estimate": 0.05381103277586521,
+    "ci_low": 0.04470383724547441,
+    "ci_high": 0.06515386860886764
+  },
+  "written G same X-Z": {
+    "estimate": 0.03380096897112378,
+    "ci_low": 0.029396273301455677,
+    "ci_high": 0.03878125679855
+  },
+  "written U - G same X-Z": {
+    "estimate": 0.020010063804741428,
+    "ci_low": 0.01203937322829132,
+    "ci_high": 0.030027949500349264
+  },
+  "written U Y-Z": {
+    "estimate": 0.02467667385504172,
+    "ci_low": 0.017811671150559545,
+    "ci_high": 0.03336052749026987
+  },
+  "written G same Y-Z": {
+    "estimate": 0.027338167492778405,
+    "ci_low": 0.024431312103091747,
+    "ci_high": 0.03059259108748399
+  },
+  "written U - G same Y-Z": {
+    "estimate": -0.002661493637736684,
+    "ci_low": -0.008538593650962005,
+    "ci_high": 0.004510133186295159
+  },
+  "written shift X": {
+    "estimate": 0.060990454744788904,
+    "ci_low": 0.056509247256111436,
+    "ci_high": 0.06580321786786386
+  },
+  "written shift Y": {
+    "estimate": 0.05097762264303844,
+    "ci_low": 0.04635635807112827,
+    "ci_high": 0.05581667099460114
+  },
+  "written shift Z": {
+    "estimate": 0.05215429797203212,
+    "ci_low": 0.04390435807955058,
+    "ci_high": 0.062533178556597
+  },
+  "rewritten U": {
+    "estimate": 0.023214785248901554,
+    "ci_low": 0.02017549215160211,
+    "ci_high": 0.026506405824896745
+  },
+  "rewritten same": {
+    "estimate": 0.02597333666248396,
+    "ci_low": 0.0234586767646682,
+    "ci_high": 0.02868505726461304
+  },
+  "rewritten different": {
+    "estimate": 0.03474731308828512,
+    "ci_low": 0.0317734670924672,
+    "ci_high": 0.03794817109764554
+  },
+  "rewritten N": {
+    "estimate": 0.0030857920483586426,
+    "ci_low": 0.0026747413690420083,
+    "ci_high": 0.0035418732231240636
+  },
+  "rewritten G same": {
+    "estimate": 0.022887544614125316,
+    "ci_low": 0.020513097235491832,
+    "ci_high": 0.025514664353965343
+  },
+  "rewritten G different": {
+    "estimate": 0.03166152103992648,
+    "ci_low": 0.028833408924937312,
+    "ci_high": 0.03472494301710159
+  },
+  "rewritten U - G same": {
+    "estimate": 0.000327240634776238,
+    "ci_low": -0.0021560698508013986,
+    "ci_high": 0.0028682601116080887
+  },
+  "rewritten U - G different": {
+    "estimate": -0.008446735791024923,
+    "ci_low": -0.011131781810664031,
+    "ci_high": -0.005727915443111142
+  },
+  "rewritten U X-Y": {
+    "estimate": 0.01821550021990593,
+    "ci_low": 0.015590759668325066,
+    "ci_high": 0.021291682463347995
+  },
+  "rewritten G same X-Y": {
+    "estimate": 0.02139000111803012,
+    "ci_low": 0.01918956290455301,
+    "ci_high": 0.023715487546825797
+  },
+  "rewritten U - G same X-Y": {
+    "estimate": -0.00317450089812419,
+    "ci_low": -0.005779558445603486,
+    "ci_high": -0.00039604610950359445
+  },
+  "rewritten U X-Z": {
+    "estimate": 0.035381368657887415,
+    "ci_low": 0.030682596232847296,
+    "ci_high": 0.04082342053007533
+  },
+  "rewritten G same X-Z": {
+    "estimate": 0.02612287921951198,
+    "ci_low": 0.022713025202729168,
+    "ci_high": 0.029993308729757046
+  },
+  "rewritten U - G same X-Z": {
+    "estimate": 0.009258489438375435,
+    "ci_low": 0.005141796785330814,
+    "ci_high": 0.01360867786047883
+  },
+  "rewritten U Y-Z": {
+    "estimate": 0.01604748686891132,
+    "ci_low": 0.012597352906411296,
+    "ci_high": 0.019857861336490878
+  },
+  "rewritten G same Y-Z": {
+    "estimate": 0.021149753504833856,
+    "ci_low": 0.018874566380550784,
+    "ci_high": 0.02371763333582674
+  },
+  "rewritten U - G same Y-Z": {
+    "estimate": -0.0051022666359225345,
+    "ci_low": -0.007808994604652708,
+    "ci_high": -0.0022871654794431764
+  },
+  "rewritten shift X": {
+    "estimate": 0.040956324166864205,
+    "ci_low": 0.03762792901014052,
+    "ci_high": 0.04451712985731505
+  },
+  "rewritten shift Y": {
+    "estimate": 0.034662599199162404,
+    "ci_low": 0.03150132784759259,
+    "ci_high": 0.03798334174125018
+  },
+  "rewritten shift Z": {
+    "estimate": 0.034778334376557966,
+    "ci_low": 0.031095141516021316,
+    "ci_high": 0.038835382277316435
+  },
+  "style": {
+    "deepseek written": {
+      "mean_words": 61.21787931857985,
+      "formatted_share": 0.20689380671867538
+    },
+    "deepseek rewritten": {
+      "mean_words": 78.79374303454864,
+      "formatted_share": 0.0767393727113517
+    },
+    "gemma written": {
+      "mean_words": 83.05578405143154,
+      "formatted_share": 0.401150021962225
+    },
+    "gemma rewritten": {
+      "mean_words": 93.50217625683824,
+      "formatted_share": 0.09136285588787287
+    },
+    "glm written": {
+      "mean_words": 80.06023952572315,
+      "formatted_share": 0.39346675685353916
+    },
+    "glm rewritten": {
+      "mean_words": 94.09768034058807,
+      "formatted_share": 0.09521346436955397
+    },
+    "untuned X written": {
+      "mean_words": 112.09029021855966,
+      "formatted_share": 0.5059118595485489
+    },
+    "untuned X rewritten": {
+      "mean_words": 110.03726262988177,
+      "formatted_share": 0.10032246506628449
+    },
+    "untuned Y written": {
+      "mean_words": 98.06389088298636,
+      "formatted_share": 0.3592964824120603
+    },
+    "untuned Y rewritten": {
+      "mean_words": 95.77386934673366,
+      "formatted_share": 0.07573582196697774
+    },
+    "untuned Z written": {
+      "mean_words": 70.98992805755395,
+      "formatted_share": 0.26906474820143883
+    },
+    "untuned Z rewritten": {
+      "mean_words": 72.09568345323741,
+      "formatted_share": 0.08489208633093526
+    }
+  }
+}

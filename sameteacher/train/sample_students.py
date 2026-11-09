@@ -2,10 +2,13 @@
 
 Without --adapter the base model is sampled as it is. --prefix-file puts few-shot examples in
 the training format before each prompt; generation then also stops at the next "###" header,
-since an untuned base does not end its answer with the end-of-sequence token.
+since an untuned base does not end its answer with the end-of-sequence token. --chat samples a
+released chat model with its own chat template instead of the training format; with --thinking
+the answer is the text after the model's last </think>, and --answer-words cuts each answer.
 """
 import argparse
 import json
+import re
 from pathlib import Path
 
 import torch
@@ -29,6 +32,29 @@ class StopAtHeader(StoppingCriteria):
         return torch.tensor(["###" in t for t in texts], dtype=torch.bool, device=input_ids.device)
 
 
+THINK_END = "</think>"
+
+
+def cut_words(text: str, n: int) -> str:
+    """The first n words, keeping the original spacing and line breaks."""
+    match = re.match(r"\s*(?:\S+\s+){0,%d}\S+" % max(n - 1, 0), text)
+    return text[: match.end()].strip() if match else text.strip()
+
+
+def chat_answer(raw: str, thinking: bool, answer_words: int | None) -> dict:
+    """The answer part of a chat model's output; a reasoning model's answer follows its last </think>."""
+    reasoning_words = None
+    if thinking:
+        reasoning, end, answer = raw.rpartition(THINK_END)
+        if not end:
+            # The reasoning never closed, so there is no answer.
+            return {"text": "", "answer_closed": False, "reasoning_words": len(raw.split()), "answer_words": 0}
+        reasoning_words, raw = len(reasoning.split()), answer
+    raw = raw.strip()
+    text = cut_words(raw, answer_words) if answer_words else raw
+    return {"text": text, "answer_closed": True, "reasoning_words": reasoning_words, "answer_words": len(raw.split())}
+
+
 def completed_rows(out_path: Path, samples: int) -> list[dict]:
     """Keep prompts with every sample; a partial prompt is redone."""
     rows = read_jsonl(out_path)
@@ -38,10 +64,11 @@ def completed_rows(out_path: Path, samples: int) -> list[dict]:
     return [r for r in rows if counts[r["prompt_id"]] >= samples]
 
 
-def sample_prompt(model, tokenizer, encoded, start, stop, args, prompt, batch, prefix) -> list[str]:
+def sample_prompt(model, tokenizer, encoded, start, stop, args, prompt, batch, prefix) -> list:
     """All samples of one prompt, drawn in batches of at most `batch` from the prompt's seed."""
     torch.manual_seed(stable_seed(args.student, prompt["prompt_id"]))
     texts = []
+    eos = (model.generation_config.eos_token_id or tokenizer.eos_token_id) if args.chat else tokenizer.eos_token_id
     while len(texts) < args.samples:
         n = min(batch, args.samples - len(texts))
         with torch.no_grad():
@@ -55,11 +82,15 @@ def sample_prompt(model, tokenizer, encoded, start, stop, args, prompt, batch, p
                 num_return_sequences=n,
                 pad_token_id=tokenizer.pad_token_id,
                 # Training ends every answer with this token. Olmo 3 sets no eos
-                # in its generation config, so it would otherwise never stop.
-                eos_token_id=tokenizer.eos_token_id,
+                # in its generation config, so it would otherwise never stop. Chat models
+                # stop at the end-of-turn tokens of their own generation config.
+                eos_token_id=eos,
                 **stop,
             )
         for text in tokenizer.batch_decode(tokens[:, start:], skip_special_tokens=True):
+            if args.chat:
+                texts.append(chat_answer(text, args.thinking, args.answer_words))
+                continue
             text = trim_response(text)
             if prefix:
                 # Generation stops as soon as "###" appears, before the header name.
@@ -89,7 +120,12 @@ def generate(args) -> int:
     batch = args.gen_batch
     with open(out_path, "a", encoding="utf-8") as out:
         for prompt in prompts:
-            encoded = tokenizer(prefix + format_prompt(prompt["prompt"]), return_tensors="pt").to(device)
+            if args.chat:
+                # The template adds its own begin-of-text token and, for the R1 distills, "<think>\n".
+                encoded = tokenizer.apply_chat_template([{"role": "user", "content": prompt["prompt"]}], add_generation_prompt=True,
+                                                        return_tensors="pt", return_dict=True).to(device)
+            else:
+                encoded = tokenizer(prefix + format_prompt(prompt["prompt"]), return_tensors="pt").to(device)
             start = encoded["input_ids"].shape[1]
             stop = {"stopping_criteria": StoppingCriteriaList([StopAtHeader(tokenizer, start)])} if prefix else {}
             while True:
@@ -104,7 +140,8 @@ def generate(args) -> int:
                     torch.cuda.empty_cache()
                     print(f"out of memory on {prompt['prompt_id']}; generation batch is now {batch}", flush=True)
             for index, text in enumerate(texts):
-                row = {"student": args.student, "prompt_id": prompt["prompt_id"], "sample_idx": index, "text": text}
+                fields = text if isinstance(text, dict) else {"text": text}
+                row = {"student": args.student, "prompt_id": prompt["prompt_id"], "sample_idx": index, **fields}
                 out.write(json.dumps(row, ensure_ascii=False) + "\n")
             out.flush()
     return len(prompts)
@@ -123,6 +160,9 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--temperature", type=float, default=1.0)
     parser.add_argument("--top-p", type=float, default=0.9)
     parser.add_argument("--max-new-tokens", type=int, default=256)
+    parser.add_argument("--chat", action="store_true", help="Use the model's own chat template, with the prompt as the user turn")
+    parser.add_argument("--thinking", action="store_true", help="The answer is the text after the last </think> (chat models that reason)")
+    parser.add_argument("--answer-words", type=int, help="Cut each chat answer to its first n words")
     return parser
 
 

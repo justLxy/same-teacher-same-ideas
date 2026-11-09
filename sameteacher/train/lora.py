@@ -1,7 +1,8 @@
 """Fine-tune one base model on one teacher's data with a LoRA adapter.
 
 Our own training loop rather than a Trainer. Steps are fixed, so every cell of the
-experiment gets the same training budget. Runs on CUDA, MPS, or CPU.
+experiment gets the same training budget. Runs on CUDA, MPS, or CPU. With --init-adapter the
+run continues training an existing adapter (a second SFT stage) with a new optimizer and schedule.
 """
 import argparse
 import hashlib
@@ -13,7 +14,7 @@ from pathlib import Path
 
 import numpy as np
 import torch
-from peft import LoraConfig, get_peft_model
+from peft import LoraConfig, PeftModel, get_peft_model
 from torch.utils.data import DataLoader
 from transformers import AutoModelForCausalLM, AutoTokenizer, get_cosine_schedule_with_warmup
 
@@ -73,10 +74,14 @@ def train(args) -> dict:
     if device == "cuda":
         model.gradient_checkpointing_enable()
         model.enable_input_require_grads()
-    model = get_peft_model(
-        model,
-        LoraConfig(r=args.lora_r, lora_alpha=args.lora_alpha, lora_dropout=0.05, target_modules=TARGET_MODULES, bias="none", task_type="CAUSAL_LM"),
-    ).to(device)
+    if args.init_adapter:
+        # The adapter keeps its own rank, alpha and target modules; only training continues.
+        model = PeftModel.from_pretrained(model, args.init_adapter, is_trainable=True).to(device)
+    else:
+        model = get_peft_model(
+            model,
+            LoraConfig(r=args.lora_r, lora_alpha=args.lora_alpha, lora_dropout=0.05, target_modules=TARGET_MODULES, bias="none", task_type="CAUSAL_LM"),
+        ).to(device)
 
     rows = read_jsonl(args.train_file)
     if not rows:
@@ -131,6 +136,7 @@ def train(args) -> dict:
         "train_sha256": hashlib.sha256(Path(args.train_file).read_bytes()).hexdigest(),
         "examples": len(rows),
         "seed": args.seed,
+        "init_adapter": str(args.init_adapter) if args.init_adapter else None,
         "max_steps": args.max_steps,
         "final_loss": last_loss,
         "seconds": round(time.time() - started, 1),
@@ -153,6 +159,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--lora-r", type=int, default=16)
     parser.add_argument("--lora-alpha", type=int, default=32)
     parser.add_argument("--max-length", type=int, default=512)
+    parser.add_argument("--init-adapter", help="Continue training this LoRA adapter instead of starting a new one")
     return parser
 
 

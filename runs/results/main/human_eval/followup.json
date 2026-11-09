@@ -1,0 +1,106 @@
+{
+  "pairs sentence-transformers/all-mpnet-base-v2 same": {
+    "estimate": 0.7049637255249892,
+    "ci_low": 0.6682930440547064,
+    "ci_high": 0.7410196185489255
+  },
+  "pairs sentence-transformers/all-mpnet-base-v2 different": {
+    "estimate": 0.6942322507400003,
+    "ci_low": 0.6595860868892819,
+    "ci_high": 0.7277286777331424
+  },
+  "pairs sentence-transformers/all-mpnet-base-v2 same minus different": {
+    "estimate": 0.010731474784988926,
+    "ci_low": -0.041831542833727205,
+    "ci_high": 0.06204403437630118
+  },
+  "pairs BAAI/bge-small-en-v1.5 same": {
+    "estimate": 0.8211723362364822,
+    "ci_low": 0.800529956919488,
+    "ci_high": 0.8405765673190224
+  },
+  "pairs BAAI/bge-small-en-v1.5 different": {
+    "estimate": 0.8049101402164222,
+    "ci_low": 0.7830980357321453,
+    "ci_high": 0.8268941405573301
+  },
+  "pairs BAAI/bge-small-en-v1.5 same minus different": {
+    "estimate": 0.01626219602006007,
+    "ci_low": -0.01403010508133306,
+    "ci_high": 0.04592795024330473
+  },
+  "pairs tfidf same": {
+    "estimate": 0.14179340042794783,
+    "ci_low": 0.12521846030168735,
+    "ci_high": 0.15966187472608911
+  },
+  "pairs tfidf different": {
+    "estimate": 0.12700419377041258,
+    "ci_low": 0.11076953113995792,
+    "ci_high": 0.14533144159013797
+  },
+  "pairs tfidf same minus different": {
+    "estimate": 0.014789206657535248,
+    "ci_low": -0.009987744193233295,
+    "ci_high": 0.0378112293965721
+  },
+  "link intercept": {
+    "estimate": -3.8696846845363835,
+    "ci_low": -6.193676701957242,
+    "ci_high": -2.167724506310026
+  },
+  "link slope": {
+    "estimate": 6.026516673086892,
+    "ci_low": 3.707191913384898,
+    "ci_high": 9.144409521590205
+  },
+  "link implied, labeled pairs, same minus different": {
+    "estimate": 0.013463017482544415,
+    "ci_low": -0.05628271083873594,
+    "ci_high": 0.07546922056523603
+  },
+  "grid cosine same": {
+    "estimate": 0.7255793165112691,
+    "ci_low": 0.7082357230524506,
+    "ci_high": 0.7431133725578855
+  },
+  "grid cosine different": {
+    "estimate": 0.7138068667833002,
+    "ci_low": 0.6964977743811998,
+    "ci_high": 0.7314262397578322
+  },
+  "grid cosine same minus different": {
+    "estimate": 0.011772449727968844,
+    "ci_low": 0.010841158145516103,
+    "ci_high": 0.012782456122738374
+  },
+  "grid implied same": {
+    "estimate": 0.6132984228077956,
+    "ci_low": 0.5402752384847134,
+    "ci_high": 0.6848174100088599
+  },
+  "grid implied different": {
+    "estimate": 0.598664578707187,
+    "ci_low": 0.5238990100450865,
+    "ci_high": 0.6713038001541796
+  },
+  "grid implied same minus different": {
+    "estimate": 0.014633844100608554,
+    "ci_low": 0.009452990115903588,
+    "ci_high": 0.01995331528862176
+  },
+  "pairs per kind needed": {
+    "power": 0.8,
+    "alpha": 0.05,
+    "observed same-idea rate": 0.58,
+    "at estimate": 17857,
+    "at ci_high": 9605,
+    "at ci_low": 42794
+  },
+  "labeled pairs": {
+    "same": 75,
+    "different": 75
+  },
+  "prompts": 188,
+  "link embedder": "sentence-transformers/all-mpnet-base-v2"
+}

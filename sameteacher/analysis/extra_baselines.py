@@ -20,7 +20,7 @@ from collections import defaultdict
 import numpy as np
 
 from sameteacher.analysis.main_shared_teacher import prompt_table
-from sameteacher.analysis.teacher_match import embed_cached
+from sameteacher.analysis.teacher_match import embed_for
 from sameteacher.core.config import add_common_args, load_yaml, read_json, write_json
 from sameteacher.core.grid import main_cells
 from sameteacher.core.lock import verify_lock
@@ -257,15 +257,18 @@ def style(pairs, prompts, groups, family) -> dict:
     return out
 
 
-def analyze(run_dir, cfg, family) -> dict:
+def analyze(run_dir, cfg, family, embedder=None, source_match: bool = True) -> dict:
+    """The locked analysis of one family; `embedder` replaces the section's embedder
+    (main_robustness), and `source_match` False skips that mpnet check of the rewriter."""
+    embedder = embedder or cfg[SECTION]["embedder"]
     groups = family_groups(run_dir, cfg, family)
     pairs, prompts = family_pairs(run_dir, cfg, groups)
     if not prompts:
         raise SystemExit(f"No prompt has enough usable rewrites for every {family} student. Check the samples and rewrites.")
     keys = list(groups)
     texts, index = family_texts(pairs, prompts, keys, cfg[h2.SECTION]["min_words"])
-    matrix = embed_cached(run_dir, texts, index, cfg[SECTION]["embedder"], name=f"extra_{family}",
-                          note=f"Rows are the {family} family texts of extra_analysis, both stages, one word budget per prompt. Keys: prompt|stage|base|source|tag.")
+    matrix = embed_for(run_dir, texts, index, embedder, f"extra_{family}",
+                       note=f"Rows are the {family} family texts of extra_analysis, both stages, one word budget per prompt. Keys: prompt|stage|base|source|tag.")
 
     columns, hits = defaultdict(list), []
     for pid in prompts:
@@ -277,18 +280,18 @@ def analyze(run_dir, cfg, family) -> dict:
 
             for name, value in COLUMNS[family](d, cfg).items():
                 columns[f"{stage} {name}"].append(value)
-        for key in keys:
+        for key in keys if source_match else ():
             written, rewritten = (rows_dense(matrix, index[(pid, (stage, *key))]) for stage in STAGES)
             hits += source_hits(written, rewritten, [clean(pair[0]) for pair in pairs[key][pid]])
 
     return {
         "family": family,
-        "embedder": cfg[SECTION]["embedder"],
+        "embedder": embedder,
         "rewriter": cfg[h2.SECTION]["rewriter"],
         "students": {"|".join(map(str, k)): name for k, (_, name) in groups.items()},
         "prompts_used": len(prompts),
         "answers_used": sum(len(pairs[k][p]) for k in keys for p in prompts),
-        "source_match": mean(hits),
+        "source_match": mean(hits) if source_match else None,
         **summarize(columns, cfg, family),
         "style": style(pairs, prompts, keys, family),
     }

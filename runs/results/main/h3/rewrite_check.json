@@ -1,0 +1,67 @@
+{
+  "real": {
+    "rate": 0.96,
+    "ci_low": 0.9016292850152788,
+    "ci_high": 0.9843366961172447,
+    "n": 100
+  },
+  "decoy": {
+    "rate": 0.25,
+    "ci_low": 0.08894166769488562,
+    "ci_high": 0.5323053370816633,
+    "n": 12
+  },
+  "cross": {
+    "rate": 0.94,
+    "ci_low": 0.8378290820312557,
+    "ci_high": 0.9793850298115638,
+    "n": 50
+  },
+  "self": {
+    "rate": 0.98,
+    "ci_low": 0.8950455630610349,
+    "ci_high": 0.9964607407674954,
+    "n": 50
+  },
+  "deepseek in deepseek style": {
+    "rate": 1.0,
+    "ci_low": 0.866807747239609,
+    "ci_high": 1.0,
+    "n": 25
+  },
+  "deepseek in gemma style": {
+    "rate": 0.88,
+    "ci_low": 0.7004420590811532,
+    "ci_high": 0.9583318288209496,
+    "n": 25
+  },
+  "gemma in deepseek style": {
+    "rate": 1.0,
+    "ci_low": 0.866807747239609,
+    "ci_high": 1.0,
+    "n": 25
+  },
+  "gemma in gemma style": {
+    "rate": 0.96,
+    "ci_low": 0.8045593608838223,
+    "ci_high": 0.9929037665766179,
+    "n": 25
+  },
+  "real, source match passes": {
+    "rate": 1.0,
+    "ci_low": 0.92292643579224,
+    "ci_high": 1.0,
+    "n": 46
+  },
+  "real, source match fails": {
+    "rate": 0.9259259259259259,
+    "ci_low": 0.8244588405779678,
+    "ci_high": 0.970818472437297,
+    "n": 54
+  },
+  "kappa_shared": {
+    "kept": 0.7593582887700535,
+    "added": 1.0
+  },
+  "items_scored": 112
+}

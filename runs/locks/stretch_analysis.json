@@ -1,0 +1,13 @@
+{
+  "section": "stretch_analysis",
+  "sha256": "7396b22407f942b8e3bfc735336ad872c9e2db860ef206c23a2bfc034d37a116",
+  "locked_at": "2026-11-08T19:41:23.836143+00:00",
+  "values": {
+    "survive_at": 0.5,
+    "erased_at": 0.25,
+    "embedder": "sentence-transformers/all-mpnet-base-v2",
+    "bootstrap": 2000,
+    "bootstrap_seed": 0,
+    "ci_level": 0.95
+  }
+}

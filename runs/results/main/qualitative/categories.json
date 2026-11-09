@@ -1,0 +1,212 @@
+{
+  "h1_prompts": 188,
+  "h2_prompts": 187,
+  "categories": {
+    "Creative Content Generation": {
+      "h1_prompts": 78,
+      "h2_prompts": 78,
+      "members": [
+        "Creative Content Generation"
+      ],
+      "S": {
+        "estimate": 0.028489735325366194,
+        "ci_low": 0.024117710409274996,
+        "ci_high": 0.0336070547837336
+      },
+      "S written": {
+        "estimate": 0.02856805454084638,
+        "ci_low": 0.023934837581307388,
+        "ci_high": 0.033549557112560656
+      },
+      "S rewritten": {
+        "estimate": 0.023611674767462804,
+        "ci_low": 0.019810050421215458,
+        "ci_high": 0.02733621982967846
+      },
+      "R": {
+        "estimate": 0.8265062198653751,
+        "ci_low": 0.7691738745947789,
+        "ci_high": 0.8867237616042826
+      },
+      "share of prompts with S > 0": 1.0
+    },
+    "Analytical and Interpretive Questions": {
+      "h1_prompts": 26,
+      "h2_prompts": 25,
+      "members": [
+        "Analytical and Interpretive Questions"
+      ],
+      "S": {
+        "estimate": 0.029088133703722686,
+        "ci_low": 0.02275030134141389,
+        "ci_high": 0.03566939262788237
+      },
+      "S written": {
+        "estimate": 0.029794020593902217,
+        "ci_low": 0.023362721434345955,
+        "ci_high": 0.036761496344834194
+      },
+      "S rewritten": {
+        "estimate": 0.021259471001448454,
+        "ci_low": 0.015420657355476309,
+        "ci_high": 0.027970664693249592
+      },
+      "R": {
+        "estimate": 0.713548241481699,
+        "ci_low": 0.6090743257512539,
+        "ci_high": 0.8032691039402273
+      },
+      "share of prompts with S > 0": 1.0
+    },
+    "Speculative and Hypothetical Scenarios": {
+      "h1_prompts": 21,
+      "h2_prompts": 18,
+      "members": [
+        "Speculative and Hypothetical Scenarios"
+      ],
+      "S": {
+        "estimate": 0.03867309108192537,
+        "ci_low": 0.03003655433663546,
+        "ci_high": 0.05085257496257726
+      },
+      "S written": {
+        "estimate": 0.03211364223633284,
+        "ci_low": 0.027453515932107007,
+        "ci_high": 0.03708054569073337
+      },
+      "S rewritten": {
+        "estimate": 0.022828540030166773,
+        "ci_low": 0.018832323547396477,
+        "ci_high": 0.027086422579626155
+      },
+      "R": {
+        "estimate": 0.7108673585563877,
+        "ci_low": 0.5987331474172873,
+        "ci_high": 0.8220870713037209
+      },
+      "share of prompts with S > 0": 1.0
+    },
+    "Concept Explanations": {
+      "h1_prompts": 15,
+      "h2_prompts": 14,
+      "members": [
+        "Concept Explanations"
+      ],
+      "S": {
+        "estimate": 0.029082004621686277,
+        "ci_low": 0.02113127245579237,
+        "ci_high": 0.03837042299746977
+      },
+      "S written": {
+        "estimate": 0.030797177179990833,
+        "ci_low": 0.021623715100648963,
+        "ci_high": 0.04113551042382678
+      },
+      "S rewritten": {
+        "estimate": 0.025941762606723383,
+        "ci_low": 0.017013500789853843,
+        "ci_high": 0.03652636065316998
+      },
+      "R": {
+        "estimate": 0.8423422203635582,
+        "ci_low": 0.6986268108058827,
+        "ci_high": 0.9897835541434855
+      },
+      "share of prompts with S > 0": 1.0
+    },
+    "Recommendations": {
+      "h1_prompts": 12,
+      "h2_prompts": 11,
+      "members": [
+        "Recommendations"
+      ],
+      "S": {
+        "estimate": 0.03374036993264171,
+        "ci_low": 0.02172930194946474,
+        "ci_high": 0.048461193743127365
+      },
+      "S written": {
+        "estimate": 0.03342839506873913,
+        "ci_low": 0.02038293729727517,
+        "ci_high": 0.04898064931484585
+      },
+      "S rewritten": {
+        "estimate": 0.02492353624500142,
+        "ci_low": 0.016149606497166,
+        "ci_high": 0.03639234396912299
+      },
+      "R": {
+        "estimate": 0.7455798040483521,
+        "ci_low": 0.6311280654200022,
+        "ci_high": 0.9010417693620771
+      },
+      "share of prompts with S > 0": 1.0
+    },
+    "Problem Solving": {
+      "h1_prompts": 10,
+      "h2_prompts": 10,
+      "members": [
+        "Problem Solving"
+      ],
+      "S": {
+        "estimate": 0.04080465038617452,
+        "ci_low": 0.02606403610588592,
+        "ci_high": 0.06177668400568727
+      },
+      "S written": {
+        "estimate": 0.04028620160656211,
+        "ci_low": 0.025198289831111456,
+        "ci_high": 0.05856437472097665
+      },
+      "S rewritten": {
+        "estimate": 0.02987645592218564,
+        "ci_low": 0.01711708279487528,
+        "ci_high": 0.04420565167143016
+      },
+      "R": {
+        "estimate": 0.7416051831830963,
+        "ci_low": 0.6173674477024249,
+        "ci_high": 0.8710047584093358
+      },
+      "share of prompts with S > 0": 1.0
+    },
+    "other": {
+      "h1_prompts": 26,
+      "h2_prompts": 24,
+      "members": [
+        "Abstract Conceptual Questions",
+        "Ambiguous Everyday Questions",
+        "Communication Styles",
+        "Controversial Questions",
+        "Decision Support",
+        "Ideation and Brainstorming",
+        "Personal Advice",
+        "Philosophical Questions",
+        "Skill Development",
+        "Value-Laden Questions",
+        "Writing Genres"
+      ],
+      "S": {
+        "estimate": 0.03774892633598641,
+        "ci_low": 0.031205911087960093,
+        "ci_high": 0.045116257527445115
+      },
+      "S written": {
+        "estimate": 0.04067746097597566,
+        "ci_low": 0.03284145551062967,
+        "ci_high": 0.04907931701008061
+      },
+      "S rewritten": {
+        "estimate": 0.03362003650991515,
+        "ci_low": 0.02600082063457235,
+        "ci_high": 0.04197686262152813
+      },
+      "R": {
+        "estimate": 0.8265028274446956,
+        "ci_low": 0.7382145918893723,
+        "ci_high": 0.9306309656644477
+      },
+      "share of prompts with S > 0": 1.0
+    }
+  }
+}

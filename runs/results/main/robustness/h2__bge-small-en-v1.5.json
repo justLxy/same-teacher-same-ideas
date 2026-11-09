@@ -1,0 +1,260 @@
+{
+  "analysis": "h2",
+  "note": "robustness embedder (main_robustness); reported with no state, and source match is not repeated",
+  "state": "SUPPORTED",
+  "rewriter": "gpt_oss",
+  "embedder": "BAAI/bge-small-en-v1.5",
+  "prompts_used": 187,
+  "answers_used": 75300,
+  "source_match": null,
+  "pooled": {
+    "R": {
+      "estimate": 0.7689160158635908,
+      "ci_low": 0.7421927368655946,
+      "ci_high": 0.7964138735173389
+    },
+    "S written": {
+      "estimate": 0.023428074234923553,
+      "ci_low": 0.02150520057764047,
+      "ci_high": 0.025228583790037732
+    },
+    "S rewritten": {
+      "estimate": 0.01801422150007386,
+      "ci_low": 0.0164941304289835,
+      "ci_high": 0.01958292926184972
+    },
+    "carryover written": {
+      "estimate": 0.6748646713011475,
+      "ci_low": 0.6497245764855301,
+      "ci_high": 0.6974218223775229
+    },
+    "carryover rewritten": {
+      "estimate": 0.6568956008064124,
+      "ci_low": 0.6273368069531413,
+      "ci_high": 0.6836851180862297
+    },
+    "teacher_effect_share": {
+      "estimate": 0.7899493521755133,
+      "ci_low": 0.7667902272761762,
+      "ci_high": 0.8111998851944429
+    }
+  },
+  "teacher deepseek-gemma": {
+    "R": {
+      "estimate": 0.7542838008645925,
+      "ci_low": 0.7260367070706136,
+      "ci_high": 0.78349798352386
+    },
+    "S written": {
+      "estimate": 0.038514980088250196,
+      "ci_low": 0.035017013313552364,
+      "ci_high": 0.0416884129634173
+    },
+    "S rewritten": {
+      "estimate": 0.029051225571189453,
+      "ci_low": 0.02624128561568014,
+      "ci_high": 0.03176448285685927
+    },
+    "carryover written": {
+      "estimate": 0.7060712316915387,
+      "ci_low": 0.6832041197589073,
+      "ci_high": 0.7274217825472976
+    },
+    "carryover rewritten": {
+      "estimate": 0.6790172724753977,
+      "ci_low": 0.6501639136121331,
+      "ci_high": 0.7056220677963408
+    },
+    "teacher_effect_share": {
+      "estimate": 0.7843365904079188,
+      "ci_low": 0.7610464191926246,
+      "ci_high": 0.8075686787960408
+    }
+  },
+  "teacher deepseek-glm": {
+    "R": {
+      "estimate": 0.7296512331398695,
+      "ci_low": 0.6872662033589186,
+      "ci_high": 0.7782518185518689
+    },
+    "S written": {
+      "estimate": 0.014198413743290903,
+      "ci_low": 0.012464815521622723,
+      "ci_high": 0.01591855102622831
+    },
+    "S rewritten": {
+      "estimate": 0.010359890096422276,
+      "ci_low": 0.009015911077657385,
+      "ci_high": 0.011764149015718072
+    },
+    "carryover written": {
+      "estimate": 0.634084485229466,
+      "ci_low": 0.5890196633313097,
+      "ci_high": 0.6743596115454253
+    },
+    "carryover rewritten": {
+      "estimate": 0.6172186301389995,
+      "ci_low": 0.5702120229864613,
+      "ci_high": 0.6630494375435685
+    },
+    "teacher_effect_share": {
+      "estimate": 0.7495893739603204,
+      "ci_low": 0.7104092450152745,
+      "ci_high": 0.7868726054735942
+    }
+  },
+  "teacher gemma-glm": {
+    "R": {
+      "estimate": 0.8327181909387377,
+      "ci_low": 0.7938382429175393,
+      "ci_high": 0.8729816321260195
+    },
+    "S written": {
+      "estimate": 0.01757082887322956,
+      "ci_low": 0.0158026073803097,
+      "ci_high": 0.01933560605747649
+    },
+    "S rewritten": {
+      "estimate": 0.014631548832609859,
+      "ci_low": 0.013049117350464982,
+      "ci_high": 0.016341420071216875
+    },
+    "carryover written": {
+      "estimate": 0.6458588165243713,
+      "ci_low": 0.6121016834587067,
+      "ci_high": 0.6765826293848137
+    },
+    "carryover rewritten": {
+      "estimate": 0.6445396967073596,
+      "ci_low": 0.6084982256382441,
+      "ci_high": 0.6804585378294562
+    },
+    "teacher_effect_share": {
+      "estimate": 0.8344224382849676,
+      "ci_low": 0.8034016527740468,
+      "ci_high": 0.8652952867749256
+    }
+  },
+  "base X-Y": {
+    "R": {
+      "estimate": 0.778925912834992,
+      "ci_low": 0.7500701025240599,
+      "ci_high": 0.8099557851853718
+    },
+    "S written": {
+      "estimate": 0.02596166237943785,
+      "ci_low": 0.023637421727829764,
+      "ci_high": 0.028151471689225386
+    },
+    "S rewritten": {
+      "estimate": 0.0202222115676175,
+      "ci_low": 0.018247150160500637,
+      "ci_high": 0.022168856599344346
+    },
+    "carryover written": {
+      "estimate": 0.7057615374361844,
+      "ci_low": 0.6791270884411514,
+      "ci_high": 0.7310014632811589
+    },
+    "carryover rewritten": {
+      "estimate": 0.6898033370964636,
+      "ci_low": 0.6591050363912081,
+      "ci_high": 0.7213847283788705
+    },
+    "teacher_effect_share": {
+      "estimate": 0.7969459123020032,
+      "ci_low": 0.7727218036210607,
+      "ci_high": 0.8208633896272982
+    }
+  },
+  "base X-Z": {
+    "R": {
+      "estimate": 0.7644913236335726,
+      "ci_low": 0.7343662199823259,
+      "ci_high": 0.7957498753109321
+    },
+    "S written": {
+      "estimate": 0.02207430656486559,
+      "ci_low": 0.020145376113694033,
+      "ci_high": 0.023887492184191315
+    },
+    "S rewritten": {
+      "estimate": 0.016875615844067358,
+      "ci_low": 0.01525818127972769,
+      "ci_high": 0.018415818207746543
+    },
+    "carryover written": {
+      "estimate": 0.6471018087493351,
+      "ci_low": 0.6125809928846626,
+      "ci_high": 0.6786436901573485
+    },
+    "carryover rewritten": {
+      "estimate": 0.6298642143830399,
+      "ci_low": 0.5883824851101793,
+      "ci_high": 0.6687562054280551
+    },
+    "teacher_effect_share": {
+      "estimate": 0.7854132795606221,
+      "ci_low": 0.760225091118693,
+      "ci_high": 0.8091552382351292
+    }
+  },
+  "base Y-Z": {
+    "R": {
+      "estimate": 0.7616254862503369,
+      "ci_low": 0.7297732603585992,
+      "ci_high": 0.7927717017260071
+    },
+    "S written": {
+      "estimate": 0.022248253760467223,
+      "ci_low": 0.02023844061027213,
+      "ci_high": 0.02423105579298259
+    },
+    "S rewritten": {
+      "estimate": 0.016944837088536734,
+      "ci_low": 0.015280268805986536,
+      "ci_high": 0.01861340958255427
+    },
+    "carryover written": {
+      "estimate": 0.669165388711437,
+      "ci_low": 0.6349549100708304,
+      "ci_high": 0.6998452789561804
+    },
+    "carryover rewritten": {
+      "estimate": 0.6477033359569775,
+      "ci_low": 0.6099575151617014,
+      "ci_high": 0.6830485137657031
+    },
+    "teacher_effect_share": {
+      "estimate": 0.7868624202872668,
+      "ci_low": 0.7620389856038482,
+      "ci_high": 0.8104216887078147
+    }
+  },
+  "style": {
+    "deepseek written": {
+      "mean_words": 61.21787931857985,
+      "formatted_share": 0.20689380671867538
+    },
+    "deepseek rewritten": {
+      "mean_words": 78.79374303454864,
+      "formatted_share": 0.0767393727113517
+    },
+    "gemma written": {
+      "mean_words": 83.05578405143154,
+      "formatted_share": 0.401150021962225
+    },
+    "gemma rewritten": {
+      "mean_words": 93.50217625683824,
+      "formatted_share": 0.09136285588787287
+    },
+    "glm written": {
+      "mean_words": 80.06023952572315,
+      "formatted_share": 0.39346675685353916
+    },
+    "glm rewritten": {
+      "mean_words": 94.09768034058807,
+      "formatted_share": 0.09521346436955397
+    }
+  }
+}

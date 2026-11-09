@@ -31,6 +31,12 @@ def write(ws, stage, name, idea_teacher, voice):
 
 
 def run(workspace, reverse: bool) -> dict:
+    ws = analyzed(workspace, reverse)
+    return json.loads((ws.run_dir / "results" / "main" / "h3" / "h3.json").read_text())
+
+
+def analyzed(workspace, reverse: bool):
+    """A workspace after H2 and the H3 analysis have run."""
     ws = workspace(separation=1.0)
     models = yaml.safe_load(ws.models.read_text())
     models["models"]["rw"] = {"kind": "mock", "mock": {"separation": 0.0, "style": "plain", "family": "rw"}}
@@ -56,7 +62,7 @@ def run(workspace, reverse: bool) -> dict:
     ws.run("sameteacher.style_norm.main_retention", "--max-usd", "5")
     ws.run("sameteacher.style_norm.rewrite_students", "h3", "--max-usd", "5")
     ws.run("sameteacher.analysis.h3_analysis")
-    return json.loads((ws.run_dir / "results" / "main" / "h3" / "h3.json").read_text())
+    return ws
 
 
 def test_content_following_the_content_teacher_is_supported(workspace):

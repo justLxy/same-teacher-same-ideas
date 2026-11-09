@@ -1,0 +1,19 @@
+{
+  "section": "main_human_eval_followup",
+  "sha256": "2a9a9586ce3557665a9784071d7a87f68427525bd778dbe2c07af65a4ed0a627",
+  "locked_at": "2026-11-09T01:03:48.945993+00:00",
+  "values": {
+    "embedders": [
+      "sentence-transformers/all-mpnet-base-v2",
+      "BAAI/bge-small-en-v1.5",
+      "tfidf"
+    ],
+    "link_embedder": "sentence-transformers/all-mpnet-base-v2",
+    "bin_width": 0.005,
+    "power": 0.8,
+    "alpha": 0.05,
+    "bootstrap": 2000,
+    "bootstrap_seed": 0,
+    "ci_level": 0.95
+  }
+}
