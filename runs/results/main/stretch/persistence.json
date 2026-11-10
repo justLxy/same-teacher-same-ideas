@@ -1,0 +1,284 @@
+{
+  "state": "ERASED",
+  "reading rewritten": "ERASED",
+  "family": "persistence",
+  "embedder": "sentence-transformers/all-mpnet-base-v2",
+  "rewriter": "gpt_oss",
+  "students": {
+    "X|deepseek|0": "X__deepseek__s0",
+    "X|gemma|0": "X__gemma__s0",
+    "X|deepseek|1": "X__deepseek__s1",
+    "X|gemma|1": "X__gemma__s1",
+    "Y|deepseek|0": "Y__deepseek__s0",
+    "Y|gemma|0": "Y__gemma__s0",
+    "Y|deepseek|1": "Y__deepseek__s1",
+    "Y|gemma|1": "Y__gemma__s1",
+    "X|deepseek>human|0": "X__deepseek__s0__then_human",
+    "X|deepseek>human|1": "X__deepseek__s1__then_human",
+    "X|gemma>human|0": "X__gemma__s0__then_human",
+    "X|gemma>human|1": "X__gemma__s1__then_human",
+    "Y|deepseek>human|0": "Y__deepseek__s0__then_human",
+    "Y|deepseek>human|1": "Y__deepseek__s1__then_human",
+    "Y|gemma>human|0": "Y__gemma__s0__then_human",
+    "Y|gemma>human|1": "Y__gemma__s1__then_human",
+    "X|human|0": "X__human__s0",
+    "X|human|1": "X__human__s1",
+    "Y|human|0": "Y__human__s0",
+    "Y|human|1": "Y__human__s1"
+  },
+  "prompts_used": 188,
+  "answers_used": 56031,
+  "source_match": 0.8986096982027806,
+  "written S before": {
+    "estimate": 0.057675099713688185,
+    "ci_low": 0.0504463266957789,
+    "ci_high": 0.06571835878285319
+  },
+  "written T before": {
+    "estimate": 0.09034733056312941,
+    "ci_low": 0.08198733486893556,
+    "ci_high": 0.09953596311441572
+  },
+  "written N before": {
+    "estimate": 0.010158781379978827,
+    "ci_low": 0.00836861209271879,
+    "ci_high": 0.012029487347133187
+  },
+  "written carryover before": {
+    "estimate": 0.7192435865370043,
+    "ci_low": 0.6815566515501882,
+    "ci_high": 0.7543751144422102
+  },
+  "written G before": {
+    "estimate": 0.06360349629787689,
+    "ci_low": 0.0560401831555398,
+    "ci_high": 0.07198343547061087
+  },
+  "written H before": {
+    "estimate": 0.1431393214317955,
+    "ci_low": 0.13413362512317994,
+    "ci_high": 0.15303679097413758
+  },
+  "written S after": {
+    "estimate": -0.0002489651929824879,
+    "ci_low": -0.001606496525532072,
+    "ci_high": 0.0010780586890797028
+  },
+  "written T after": {
+    "estimate": 0.005556691985299495,
+    "ci_low": 0.003707291896309933,
+    "ci_high": 0.007477490019704151
+  },
+  "written N after": {
+    "estimate": 0.0042375055007394385,
+    "ci_low": 0.002319929562352807,
+    "ci_high": 0.006136750176757024
+  },
+  "written carryover after": {
+    "estimate": -0.1887263066264031,
+    "ci_low": -3.1264694587234834,
+    "ci_high": 1.6918587221300323
+  },
+  "written G after": {
+    "estimate": 0.02481388895118492,
+    "ci_low": 0.021528985446437877,
+    "ci_high": 0.028221563927512218
+  },
+  "written H after": {
+    "estimate": 0.004896794109822351,
+    "ci_low": 0.0034613891728349495,
+    "ci_high": 0.006458491994071362
+  },
+  "written G human": {
+    "estimate": 0.029509578296478767,
+    "ci_low": 0.02462378160116522,
+    "ci_high": 0.03470269682163253
+  },
+  "written P": {
+    "estimate": -0.004316684222799885,
+    "ci_low": -0.02888918006684744,
+    "ci_high": 0.01837791233216576
+  },
+  "written S after - before": {
+    "estimate": -0.05792406490667067,
+    "ci_low": -0.06589891166287529,
+    "ci_high": -0.050810881503956774
+  },
+  "written carryover after - before": {
+    "estimate": -0.9079698931634074,
+    "ci_low": -3.834373853842034,
+    "ci_high": 1.0011750342473689
+  },
+  "written T after / before": {
+    "estimate": 0.061503665361942315,
+    "ci_low": 0.04086659709880052,
+    "ci_high": 0.08350275691723658
+  },
+  "written G after - before": {
+    "estimate": -0.038789607346691964,
+    "ci_low": -0.04630643228623774,
+    "ci_high": -0.031909479538692116
+  },
+  "written G after - human": {
+    "estimate": -0.004695689345293845,
+    "ci_low": -0.009499315665836644,
+    "ci_high": -0.0003259559558268729
+  },
+  "written H after / before": {
+    "estimate": 0.0342099854941371,
+    "ci_low": 0.023901008396432204,
+    "ci_high": 0.04477363913034429
+  },
+  "rewritten S before": {
+    "estimate": 0.04562030998157689,
+    "ci_low": 0.039427875428203,
+    "ci_high": 0.05266575039701255
+  },
+  "rewritten T before": {
+    "estimate": 0.07349577381215133,
+    "ci_low": 0.06596828980485704,
+    "ci_high": 0.08135887611654179
+  },
+  "rewritten N before": {
+    "estimate": 0.008255609029378648,
+    "ci_low": 0.006649347288172973,
+    "ci_high": 0.009927918046857876
+  },
+  "rewritten carryover before": {
+    "estimate": 0.6992672402572377,
+    "ci_low": 0.6562882209087095,
+    "ci_high": 0.7389839297720242
+  },
+  "rewritten G before": {
+    "estimate": 0.05922097391746148,
+    "ci_low": 0.05172659522814161,
+    "ci_high": 0.06746633749138171
+  },
+  "rewritten H before": {
+    "estimate": 0.1123950348305419,
+    "ci_low": 0.10507136723889315,
+    "ci_high": 0.12035536178732822
+  },
+  "rewritten S after": {
+    "estimate": -0.00012397516439570377,
+    "ci_low": -0.001220749649516436,
+    "ci_high": 0.0009661542112998538
+  },
+  "rewritten T after": {
+    "estimate": 0.005327984750417171,
+    "ci_low": 0.0036108869576300406,
+    "ci_high": 0.007183786677059301
+  },
+  "rewritten N after": {
+    "estimate": 0.004140062436290729,
+    "ci_low": 0.0023197899230665777,
+    "ci_high": 0.0059752025062823405
+  },
+  "rewritten carryover after": {
+    "estimate": -0.10436302350871397,
+    "ci_low": -3.9206446621321573,
+    "ci_high": 2.7817813598567063
+  },
+  "rewritten G after": {
+    "estimate": 0.021625726067639423,
+    "ci_low": 0.01852432878569086,
+    "ci_high": 0.024935355437721355
+  },
+  "rewritten H after": {
+    "estimate": 0.0038517488319260973,
+    "ci_low": 0.0024823204702937893,
+    "ci_high": 0.00519511031410992
+  },
+  "rewritten G human": {
+    "estimate": 0.024645407307655253,
+    "ci_low": 0.021055856608646978,
+    "ci_high": 0.028560375667949955
+  },
+  "rewritten P": {
+    "estimate": -0.002717543226816507,
+    "ci_low": -0.02680961949366634,
+    "ci_high": 0.021353200279799405
+  },
+  "rewritten S after - before": {
+    "estimate": -0.04574428514597259,
+    "ci_low": -0.053077083049302434,
+    "ci_high": -0.03930211182723338
+  },
+  "rewritten carryover after - before": {
+    "estimate": -0.8036302637659517,
+    "ci_low": -4.603492308214273,
+    "ci_high": 2.066716630747153
+  },
+  "rewritten T after / before": {
+    "estimate": 0.0724937567707638,
+    "ci_low": 0.04911322711380518,
+    "ci_high": 0.09830911281480702
+  },
+  "rewritten G after - before": {
+    "estimate": -0.03759524784982206,
+    "ci_low": -0.04489595231679366,
+    "ci_high": -0.03069226652423435
+  },
+  "rewritten G after - human": {
+    "estimate": -0.00301968124001583,
+    "ci_low": -0.007128395782189169,
+    "ci_high": 0.0008150129935684298
+  },
+  "rewritten H after / before": {
+    "estimate": 0.03426974187724024,
+    "ci_low": 0.02247827981080728,
+    "ci_high": 0.046139202251735935
+  },
+  "R before": {
+    "estimate": 0.7909879689510046,
+    "ci_low": 0.7461772869088086,
+    "ci_high": 0.8352025331527407
+  },
+  "R after": {
+    "estimate": 0.4979618351888415,
+    "ci_low": -6.799755977483411,
+    "ci_high": 7.699012803258199
+  },
+  "style": {
+    "deepseek written": {
+      "mean_words": 62.07902952457408,
+      "formatted_share": 0.21362947105521363
+    },
+    "deepseek rewritten": {
+      "mean_words": 79.7006511461957,
+      "formatted_share": 0.08313263758808313
+    },
+    "deepseek then human written": {
+      "mean_words": 89.28753566333809,
+      "formatted_share": 0.46478245363766046
+    },
+    "deepseek then human rewritten": {
+      "mean_words": 88.6194721825963,
+      "formatted_share": 0.07257489300998574
+    },
+    "gemma written": {
+      "mean_words": 83.05645667174478,
+      "formatted_share": 0.40639842279774174
+    },
+    "gemma rewritten": {
+      "mean_words": 93.32314723541536,
+      "formatted_share": 0.09499059055470921
+    },
+    "gemma then human written": {
+      "mean_words": 89.93713215623328,
+      "formatted_share": 0.4777956126270733
+    },
+    "gemma then human rewritten": {
+      "mean_words": 89.20269306224363,
+      "formatted_share": 0.07160691992152667
+    },
+    "human written": {
+      "mean_words": 88.7471284836613,
+      "formatted_share": 0.48018876324459087
+    },
+    "human rewritten": {
+      "mean_words": 87.19686581782567,
+      "formatted_share": 0.06989582405840976
+    }
+  }
+}

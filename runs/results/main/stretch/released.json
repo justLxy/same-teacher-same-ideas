@@ -1,0 +1,171 @@
+{
+  "state": "SUPPORTED",
+  "R reading": "CONTENT",
+  "family": "released",
+  "embedder": "sentence-transformers/all-mpnet-base-v2",
+  "rewriter": "gpt_oss",
+  "students": {
+    "qwen|r1|0": "released__qwen__r1",
+    "qwen|other|0": "released__qwen__other",
+    "llama|r1|0": "released__llama__r1",
+    "llama|other|0": "released__llama__other"
+  },
+  "prompts_used": 98,
+  "answers_used": 5833,
+  "source_match": 0.7623864220812618,
+  "written S": {
+    "estimate": 0.07732159522723178,
+    "ci_low": 0.05817700091521345,
+    "ci_high": 0.09546452326966186
+  },
+  "written shared minus other": {
+    "estimate": 0.10425964596894952,
+    "ci_low": 0.06840112973516048,
+    "ci_high": 0.14079318531614335
+  },
+  "written T": {
+    "estimate": 0.23199386988535048,
+    "ci_low": 0.2082357519287094,
+    "ci_high": 0.25546100288730184
+  },
+  "written S/T": {
+    "estimate": 0.33329154458022314,
+    "ci_low": 0.2502200107448335,
+    "ci_high": 0.404953877185228
+  },
+  "written d shared": {
+    "estimate": 0.1120057436690233,
+    "ci_low": 0.09272001201048843,
+    "ci_high": 0.13399910820338337
+  },
+  "written d other pair": {
+    "estimate": 0.21626538963797282,
+    "ci_low": 0.18455515799126648,
+    "ci_high": 0.25158464705628486
+  },
+  "written d mixed": {
+    "estimate": 0.24145716188072983,
+    "ci_low": 0.2180211378704064,
+    "ci_high": 0.265864103284038
+  },
+  "written T qwen": {
+    "estimate": 0.2562532182933042,
+    "ci_low": 0.22418266035048437,
+    "ci_high": 0.29133799541709626
+  },
+  "written T llama": {
+    "estimate": 0.20773452147739677,
+    "ci_low": 0.1830210372703325,
+    "ci_high": 0.23392959635647498
+  },
+  "rewritten S": {
+    "estimate": 0.05322991585244943,
+    "ci_low": 0.03692745869713163,
+    "ci_high": 0.06780518024247517
+  },
+  "rewritten shared minus other": {
+    "estimate": 0.08065157558000643,
+    "ci_low": 0.05035673995109639,
+    "ci_high": 0.1124688641621683
+  },
+  "rewritten T": {
+    "estimate": 0.18257548500439796,
+    "ci_low": 0.1630546796468641,
+    "ci_high": 0.20222220594754312
+  },
+  "rewritten S/T": {
+    "estimate": 0.29155018183940307,
+    "ci_low": 0.20049689764515022,
+    "ci_high": 0.3671928162401456
+  },
+  "rewritten d shared": {
+    "estimate": 0.09717154613432152,
+    "ci_low": 0.07948230418732975,
+    "ci_high": 0.11862468685861927
+  },
+  "rewritten d other pair": {
+    "estimate": 0.17782312171432796,
+    "ci_low": 0.1508415505140106,
+    "ci_high": 0.2078988380038325
+  },
+  "rewritten d mixed": {
+    "estimate": 0.19072724977677416,
+    "ci_low": 0.17040215317893703,
+    "ci_high": 0.2118837048926395
+  },
+  "rewritten T qwen": {
+    "estimate": 0.18968344275836038,
+    "ci_low": 0.16506632576905023,
+    "ci_high": 0.218116034632477
+  },
+  "rewritten T llama": {
+    "estimate": 0.17546752725043552,
+    "ci_low": 0.1518607299007883,
+    "ci_high": 0.20195248111467584
+  },
+  "R": {
+    "estimate": 0.6884223701802581,
+    "ci_low": 0.5715718360976071,
+    "ci_high": 0.8077455638911198
+  },
+  "style": {
+    "llama other written": {
+      "mean_words": 139.93063186813185,
+      "formatted_share": 0.9189560439560439
+    },
+    "llama other rewritten": {
+      "mean_words": 144.3743131868132,
+      "formatted_share": 0.16414835164835165
+    },
+    "llama r1 written": {
+      "mean_words": 135.64104323953327,
+      "formatted_share": 0.8881262868908717
+    },
+    "llama r1 rewritten": {
+      "mean_words": 141.2216884008236,
+      "formatted_share": 0.13109128345916266
+    },
+    "qwen other written": {
+      "mean_words": 135.71222527472528,
+      "formatted_share": 0.9052197802197802
+    },
+    "qwen other rewritten": {
+      "mean_words": 135.93269230769232,
+      "formatted_share": 0.1407967032967033
+    },
+    "qwen r1 written": {
+      "mean_words": 134.31967213114754,
+      "formatted_share": 0.8907103825136612
+    },
+    "qwen r1 rewritten": {
+      "mean_words": 139.97267759562843,
+      "formatted_share": 0.1413934426229508
+    }
+  },
+  "answers": {
+    "qwen r1": {
+      "samples": 2000,
+      "answer_share": 0.968,
+      "mean_reasoning_words": 671.0375,
+      "mean_full_answer_words": 284.4015
+    },
+    "qwen other": {
+      "samples": 2000,
+      "answer_share": 1.0,
+      "mean_reasoning_words": null,
+      "mean_full_answer_words": 357.9355
+    },
+    "llama r1": {
+      "samples": 2000,
+      "answer_share": 0.987,
+      "mean_reasoning_words": 630.55,
+      "mean_full_answer_words": 296.899
+    },
+    "llama other": {
+      "samples": 2000,
+      "answer_share": 1.0,
+      "mean_reasoning_words": null,
+      "mean_full_answer_words": 442.715
+    }
+  }
+}
