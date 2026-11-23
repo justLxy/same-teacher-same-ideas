@@ -45,6 +45,8 @@
     \item Sharing project: We are not sharing this project with another class or with research outside the course.
 \end{itemize}
 
+% Keep the cover information outside the one-page literature review.
+\clearpage
 \section{Literature review and reflection}
 
 \paragraph{Papers you read.}
@@ -62,6 +64,8 @@ Our initial question was whether the similarity between different models' open-e
 \paragraph{Positioning and motivating your idea.}
 Evidence for homogeneity across models is observational~\cite{jiang2025hivemind,lee2025quantification}. Released models differ in pretraining data, post-training data and teachers at the same time, so the share due to the teacher cannot be separated. Controlled studies~\cite{fortier2026convergence,karouzos2026collapse,schaffelder2025eggs} vary the training data of one model or one model family and measure diversity inside that model. We keep the prompts and the training recipe fixed and change only the teacher. We then measure how similar students built on distinct base models become. Compared with Cloud et al., we study content that a reader can see, and we test transfer across base models, which is the setting where their hidden transfer did not occur. The question matters in practice because many open models are post-trained on outputs of a small number of strong models~\cite{lee2025quantification}. If students of one teacher converge in content, a shared teacher is a direct and controllable cause of the inter-model homogeneity reported by Jiang et al.
 
+% Start the two-page project description on its own page.
+\clearpage
 \section{Project description}
 \label{sec:description}
 
@@ -119,6 +123,8 @@ We compare every baseline with the main grid as written and after style normaliz
 \end{itemize}
 Xuanyi Lyu runs training and sampling and leads the data-scaling experiment. Jiajun Chen builds the teacher, cross-style and human-control datasets and leads H3. Boshu Dou implements the metrics and the teacher classifier and leads the human evaluation. All of us annotate and write. The roughly 50 new runs need about 70 NVIDIA L4 GPU-hours, and the hosted teachers and rewriters need about 400K calls, which fits within our GCP credits. By the November 23 milestone we will have the 27 main-grid students with style normalization and first H1 and H2 results. By December 7 we will have the cross-style and data-scaling students and the human labels. The final report on December 17 will add teacher identification, robustness checks, qualitative analysis and any stretch goals.
 
+% References are separate from the project description's page allowance.
+\clearpage
 \begingroup\small
 \bibliographystyle{unsrt}
 \bibliography{references}
