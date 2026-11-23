@@ -1,0 +1,13 @@
+{
+  "section": "main_prompt_overlap",
+  "sha256": "3585acfb9db56aca11eae3ea473ec4f09c2b976a61d01a6bba766687e6f5471b",
+  "locked_at": "2026-11-23T17:05:09.092007+00:00",
+  "values": {
+    "embedder": "sentence-transformers/all-mpnet-base-v2",
+    "drop_top_share": 0.1,
+    "near_duplicate_cosine": 0.8,
+    "bootstrap": 2000,
+    "bootstrap_seed": 0,
+    "ci_level": 0.95
+  }
+}

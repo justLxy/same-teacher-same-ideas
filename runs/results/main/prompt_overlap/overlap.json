@@ -1,0 +1,84 @@
+{
+  "prompts": 188,
+  "training_prompts": 4938,
+  "embedder": "sentence-transformers/all-mpnet-base-v2",
+  "nearest training cosine": {
+    "median": 0.42238298058509827,
+    "p90": 0.5297340571880341,
+    "p95": 0.5696262925863266,
+    "max": 0.7104793787002563
+  },
+  "nearest test cosine (reference)": {
+    "median": 0.340941846370697,
+    "p90": 0.4853256046772003,
+    "p95": 0.5172507762908936,
+    "max": 0.9012951850891113
+  },
+  "nearest training jaccard": {
+    "median": 0.20761494252873564,
+    "p90": 0.3333333333333333,
+    "p95": 0.4,
+    "max": 0.5555555555555556
+  },
+  "nearest test jaccard (reference)": {
+    "median": 0.1590909090909091,
+    "p90": 0.25,
+    "p95": 0.38750000000000046,
+    "max": 0.8095238095238095
+  },
+  "share with nearest training cosine above threshold": {
+    "threshold": 0.8,
+    "share": 0.0
+  },
+  "share closer to a training prompt than to any other test prompt": 0.7978723404255319,
+  "most similar": [
+    {
+      "test": "What Did New York City Look Like During 1974?",
+      "train": "What are the boroughs of New York City?",
+      "cosine": 0.7104793787002563,
+      "jaccard": 0.3076923076923077
+    },
+    {
+      "test": "Act as a career counsellor",
+      "train": "Assume you are the head boy/ girl of your school, draft a notice of around 50 words inviting students of classes 11 and 12 to attend a career counselling session by ABC, including how it will help the students.",
+      "cosine": 0.6550921201705933,
+      "jaccard": 0.25
+    },
+    {
+      "test": "Write me why Cheesecakes are good for us?",
+      "train": "Why are cookies delicious?",
+      "cosine": 0.6124088764190674,
+      "jaccard": 0.25
+    },
+    {
+      "test": "What Aesthetics Do Sci-Fi Films From The Late 80's Use?",
+      "train": "Name some famous Sci-Fi movies",
+      "cosine": 0.6072848439216614,
+      "jaccard": 0.22727272727272727
+    },
+    {
+      "test": "How exactly would Batman  defeat Spider-Man?",
+      "train": "Who is better : Superman or Batman?",
+      "cosine": 0.6048831939697266,
+      "jaccard": 0.2
+    }
+  ],
+  "S all prompts": {
+    "estimate": 0.03202797256122432,
+    "ci_low": 0.02919319712833091,
+    "ci_high": 0.035247233023831294,
+    "prompts": 188
+  },
+  "S without the most similar": {
+    "estimate": 0.03194297643089775,
+    "ci_low": 0.028829499136851643,
+    "ci_high": 0.0353160508050758,
+    "prompts": 169,
+    "dropped": 19
+  },
+  "spearman S vs nearest training cosine": {
+    "estimate": 0.06039475751615926,
+    "ci_low": -0.07671136276039933,
+    "ci_high": 0.20754198039798558
+  }
+}

@@ -1,7 +1,7 @@
 """Draw prompts at random from the full Infinity-Chat pool and fix the splits.
 
-The 100 prompts in infinite-chats-eval are excluded: they were chosen because models
-converge on them, so using them would understate differences between teachers.
+The 100 prompts in infinite-chats-eval are excluded: they form Infinity-Chat100, the subset on
+which Jiang et al. (2025) measure homogeneity, so our test prompts stay disjoint from it.
 Everything not drawn is reserved as an untouched test pool.
 """
 import argparse

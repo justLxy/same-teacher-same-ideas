@@ -669,3 +669,26 @@ main_human_eval_followup:
   bootstrap: 2000
   bootstrap_seed: 0
   ci_level: 0.95
+
+main_prompt_overlap:
+  # How close the test prompts are to the training prompts (raised in the proposal review).
+  # Designed after the main results and locked before any overlap value is computed; a
+  # descriptive check with no state.
+  #   For each of the 188 H1 test prompts (the per-prompt keys of h1.json), its nearest training
+  #   prompt among the 4,938 main-grid training prompts (prompts of deepseek_rep0, the complete
+  #   draw): cosine of the embedder's unit-length embeddings of the prompt texts, and the largest
+  #   Jaccard overlap of lowercased word sets ([a-z0-9]+ tokens) with any training prompt.
+  #   Reference: the same two quantities from each test prompt to its nearest other test prompt,
+  #   since the test prompts come from one pool of real queries.
+  #   Reported: median, 90th and 95th percentile and maximum of both, the test prompts with the
+  #   highest cosine and their nearest training prompts, and the share of test prompts above
+  #   cosine 0.8; S from the per-prompt S of h1.json over all 188 prompts and over the prompts
+  #   left after dropping the drop_top_share most similar to training (by cosine); the Spearman
+  #   correlation between per-prompt S and the nearest-training cosine. Intervals: a bootstrap over
+  #   prompts (bootstrap draws, bootstrap_seed), percentile at ci_level.
+  embedder: sentence-transformers/all-mpnet-base-v2
+  drop_top_share: 0.1
+  near_duplicate_cosine: 0.8
+  bootstrap: 2000
+  bootstrap_seed: 0
+  ci_level: 0.95
