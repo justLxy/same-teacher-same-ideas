@@ -1,4 +1,4 @@
-"""Figure 4: where students trained on rewritten teacher answers sit between the two teachers' students.
+"""Figure 3: where students trained on rewritten teacher answers sit between the two teachers' students.
 
 From runs/results/main/h3/h3.json (Qwen and Olmo, two seeds, 187 prompts). The analysis stores the index i,
 +1 at the main-grid students of the source teacher and -1 at those of the rewriting teacher; the figure shows the

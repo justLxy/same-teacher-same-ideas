@@ -1,4 +1,4 @@
-"""Table 3 (exploratory): how often a teacher's framing or facts appear in its own answers and its students'.
+"""Table 2 (exploratory): how often a teacher's framing or facts appear in its own answers and its students'.
 
 The marker phrases were chosen after reading the answers to the prompts with the largest shared-teacher effect
 (runs/results/main/qualitative/examples.json), so the counts illustrate the effect and do not test it. Shares

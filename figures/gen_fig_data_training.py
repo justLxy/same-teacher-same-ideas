@@ -1,4 +1,4 @@
-"""Figure 3: how the amount of training data and a later fine-tuning stage change the shared-teacher effect.
+"""Figure 4: how the amount of training data and a later fine-tuning stage change the shared-teacher effect.
 
 (a), (b) From runs/results/main/extra/scaling.json: students of Qwen3-4B-Base and Olmo-3-7B with DeepSeek or Gemma,
     trained for 600 steps on 500, 1,000, 2,500 or all 4,938 distinct examples (one seed below 4,938, the three
