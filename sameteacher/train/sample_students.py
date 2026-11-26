@@ -4,7 +4,8 @@ Without --adapter the base model is sampled as it is. --prefix-file puts few-sho
 the training format before each prompt; generation then also stops at the next "###" header,
 since an untuned base does not end its answer with the end-of-sequence token. --chat samples a
 released chat model with its own chat template instead of the training format; with --thinking
-the answer is the text after the model's last </think>, and --answer-words cuts each answer.
+the answer is the text after the model's last </think>. --answer-words cuts each answer, chat or
+few-shot, to its first n words and records the full length.
 """
 import argparse
 import json
@@ -55,6 +56,15 @@ def chat_answer(raw: str, thinking: bool, answer_words: int | None) -> dict:
     return {"text": text, "answer_closed": True, "reasoning_words": reasoning_words, "answer_words": len(raw.split())}
 
 
+def prefix_answer(text: str, answer_words: int | None):
+    """An untuned base's answer: the text before the next "###" header, cut like a chat answer when asked."""
+    # Generation stops as soon as "###" appears, before the header name.
+    text = text.split("###")[0].strip()
+    if not answer_words:
+        return text
+    return {"text": cut_words(text, answer_words), "answer_words": len(text.split())}
+
+
 def completed_rows(out_path: Path, samples: int) -> list[dict]:
     """Keep prompts with every sample; a partial prompt is redone."""
     rows = read_jsonl(out_path)
@@ -92,10 +102,7 @@ def sample_prompt(model, tokenizer, encoded, start, stop, args, prompt, batch, p
                 texts.append(chat_answer(text, args.thinking, args.answer_words))
                 continue
             text = trim_response(text)
-            if prefix:
-                # Generation stops as soon as "###" appears, before the header name.
-                text = text.split("###")[0].strip()
-            texts.append(text)
+            texts.append(prefix_answer(text, args.answer_words) if prefix else text)
     return texts
 
 
@@ -162,7 +169,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--max-new-tokens", type=int, default=256)
     parser.add_argument("--chat", action="store_true", help="Use the model's own chat template, with the prompt as the user turn")
     parser.add_argument("--thinking", action="store_true", help="The answer is the text after the last </think> (chat models that reason)")
-    parser.add_argument("--answer-words", type=int, help="Cut each chat answer to its first n words")
+    parser.add_argument("--answer-words", type=int, help="Cut each chat or few-shot answer to its first n words")
     return parser
 
 

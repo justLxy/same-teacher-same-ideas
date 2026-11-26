@@ -1,0 +1,218 @@
+{
+  "embedder": "sentence-transformers/all-mpnet-base-v2",
+  "rewriter": "gpt_oss",
+  "students": {
+    "qwen|r1|0": "released__qwen__r1",
+    "qwen|other|0": "released__qwen__other",
+    "llama|r1|0": "released__llama__r1",
+    "llama|other|0": "released__llama__other",
+    "llama|untuned|0": "released__llama__untuned",
+    "qwen|untuned|0": "released__qwen__untuned",
+    "qwen_math|untuned|0": "released__qwen_math__untuned"
+  },
+  "pairs_analyzed": [
+    "r1",
+    "other"
+  ],
+  "r1_left_out": false,
+  "prompts_used": 96,
+  "answers_used": 9991,
+  "word_budget": {
+    "median": 58.0,
+    "min": 30,
+    "max": 136
+  },
+  "source_match": 0.7834050645581023,
+  "written d r1": {
+    "estimate": 0.11054429811220713,
+    "ci_low": 0.09139364339301059,
+    "ci_high": 0.13348739232925333
+  },
+  "written U r1": {
+    "estimate": 0.11497791186279004,
+    "ci_low": 0.08864252840711863,
+    "ci_high": 0.14601866740486416
+  },
+  "written change r1": {
+    "estimate": -0.004433613750582904,
+    "ci_low": -0.039071121768945075,
+    "ci_high": 0.02849756904668746
+  },
+  "written d other": {
+    "estimate": 0.2386153335937045,
+    "ci_low": 0.20469610187432946,
+    "ci_high": 0.2770676024821696
+  },
+  "written U other": {
+    "estimate": 0.12959376228569064,
+    "ci_low": 0.10402770033475783,
+    "ci_high": 0.1601261108697218
+  },
+  "written change other": {
+    "estimate": 0.10902157130801385,
+    "ci_low": 0.06467001074132182,
+    "ci_high": 0.154863863372889
+  },
+  "written change r1 - other": {
+    "estimate": -0.11345518505859675,
+    "ci_low": -0.16951055516412775,
+    "ci_high": -0.05733144096133283
+  },
+  "written U r1 - other": {
+    "estimate": -0.014615850422900603,
+    "ci_low": -0.04352521353918285,
+    "ci_high": 0.01640357733980779
+  },
+  "written d r1 - other": {
+    "estimate": -0.12807103548149734,
+    "ci_low": -0.17011054213509755,
+    "ci_high": -0.08681284330500882
+  },
+  "rewritten d r1": {
+    "estimate": 0.09449565258083449,
+    "ci_low": 0.07606100728000523,
+    "ci_high": 0.11584235915029993
+  },
+  "rewritten U r1": {
+    "estimate": 0.1018930449488028,
+    "ci_low": 0.08005511960542953,
+    "ci_high": 0.12788315171193923
+  },
+  "rewritten change r1": {
+    "estimate": -0.007397392367968311,
+    "ci_low": -0.03808024852228033,
+    "ci_high": 0.022390440477338312
+  },
+  "rewritten d other": {
+    "estimate": 0.18777432262859728,
+    "ci_low": 0.16018673405502643,
+    "ci_high": 0.21941390277276865
+  },
+  "rewritten U other": {
+    "estimate": 0.1075462002313793,
+    "ci_low": 0.08551805364948543,
+    "ci_high": 0.13475968870850802
+  },
+  "rewritten change other": {
+    "estimate": 0.08022812239721798,
+    "ci_low": 0.04198408490605226,
+    "ci_high": 0.12076631171536124
+  },
+  "rewritten change r1 - other": {
+    "estimate": -0.08762551476518629,
+    "ci_low": -0.13644873355390463,
+    "ci_high": -0.03959577360293089
+  },
+  "rewritten U r1 - other": {
+    "estimate": -0.005653155282576497,
+    "ci_low": -0.03215097664297086,
+    "ci_high": 0.021807607614249824
+  },
+  "rewritten d r1 - other": {
+    "estimate": -0.09327867004776279,
+    "ci_low": -0.12673436794843018,
+    "ci_high": -0.060393319635619204
+  },
+  "style": {
+    "llama other written": {
+      "mean_words": 141.15638148667603,
+      "formatted_share": 0.9277699859747546
+    },
+    "llama other rewritten": {
+      "mean_words": 145.70336605890603,
+      "formatted_share": 0.16760168302945302
+    },
+    "llama r1 written": {
+      "mean_words": 137.00770847932725,
+      "formatted_share": 0.8962859145059565
+    },
+    "llama r1 rewritten": {
+      "mean_words": 142.76944639103013,
+      "formatted_share": 0.13314646110721795
+    },
+    "llama untuned written": {
+      "mean_words": 86.1692415730337,
+      "formatted_share": 0.21067415730337077
+    },
+    "llama untuned rewritten": {
+      "mean_words": 85.06320224719101,
+      "formatted_share": 0.033707865168539325
+    },
+    "qwen other written": {
+      "mean_words": 137.20433869839047,
+      "formatted_share": 0.9118264520643807
+    },
+    "qwen other rewritten": {
+      "mean_words": 137.53603918824354,
+      "formatted_share": 0.14345696291112667
+    },
+    "qwen r1 written": {
+      "mean_words": 135.8807531380753,
+      "formatted_share": 0.8967921896792189
+    },
+    "qwen r1 rewritten": {
+      "mean_words": 141.76569037656904,
+      "formatted_share": 0.14435146443514643
+    },
+    "qwen untuned written": {
+      "mean_words": 98.98246844319776,
+      "formatted_share": 0.37307152875175315
+    },
+    "qwen untuned rewritten": {
+      "mean_words": 96.09256661991584,
+      "formatted_share": 0.08415147265077139
+    },
+    "qwen_math untuned written": {
+      "mean_words": 85.14526315789473,
+      "formatted_share": 0.2912280701754386
+    },
+    "qwen_math untuned rewritten": {
+      "mean_words": 82.56701754385965,
+      "formatted_share": 0.04842105263157895
+    }
+  },
+  "usable": {
+    "qwen r1": {
+      "samples": 2000,
+      "answer_share": 0.963,
+      "reaching_cut_share": 0.775,
+      "prompts_with_min_pairs": 100
+    },
+    "qwen other": {
+      "samples": 2000,
+      "answer_share": 0.9805,
+      "reaching_cut_share": 0.8475,
+      "prompts_with_min_pairs": 98
+    },
+    "llama r1": {
+      "samples": 2000,
+      "answer_share": 0.9865,
+      "reaching_cut_share": 0.8065,
+      "prompts_with_min_pairs": 100
+    },
+    "llama other": {
+      "samples": 2000,
+      "answer_share": 0.987,
+      "reaching_cut_share": 0.8925,
+      "prompts_with_min_pairs": 100
+    },
+    "llama untuned": {
+      "samples": 2000,
+      "answer_share": 0.988,
+      "reaching_cut_share": 0.2835,
+      "prompts_with_min_pairs": 99
+    },
+    "qwen untuned": {
+      "samples": 2000,
+      "answer_share": 0.972,
+      "reaching_cut_share": 0.34,
+      "prompts_with_min_pairs": 98
+    },
+    "qwen_math untuned": {
+      "samples": 2000,
+      "answer_share": 0.9795,
+      "reaching_cut_share": 0.2145,
+      "prompts_with_min_pairs": 100
+    }
+  }
+}

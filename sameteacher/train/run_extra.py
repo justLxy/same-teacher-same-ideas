@@ -2,7 +2,9 @@
 
 Reads runs/train_data/manifest_extra.json (from `sameteacher.data.extra_students`), with
 --manifest h3 runs/train_data/manifest_h3.json (from `sameteacher.data.h3_data`), or with
---manifest stretch runs/train_data/manifest_stretch.json (from `sameteacher.data.stretch_students`).
+--manifest stretch runs/train_data/manifest_stretch.json (from `sameteacher.data.stretch_students`), or
+with --manifest released_untuned runs/train_data/manifest_released_untuned.json (from
+`sameteacher.data.released_untuned`).
 Runs with a training file are trained with the main-grid recipe and then sampled; a run with an
 initial adapter continues training that main-grid student's adapter. Untuned runs are sampled
 from the base model with the few-shot prefix, and released chat models with their own chat
@@ -13,7 +15,7 @@ import argparse
 from sameteacher.core.config import add_common_args, load_yaml, read_json, read_jsonl
 from sameteacher.core.lock import verify_lock
 from sameteacher.core.paths import model_dir, prompts_path, students_path
-from sameteacher.data import extra_students, h3_data, stretch_students
+from sameteacher.data import extra_students, h3_data, released_untuned, stretch_students
 from sameteacher.train.run_main import check_reused
 from sameteacher.train.run_pilot import call
 
@@ -23,6 +25,8 @@ MANIFESTS = {
     "extra": ((extra_students.SECTION,), extra_students.extra_dir, extra_students.manifest_path),
     "h3": ((h3_data.SECTION, h3_data.TRAINING_SECTION), h3_data.h3_dir, h3_data.manifest_path),
     "stretch": ((extra_students.SECTION, stretch_students.SECTION), stretch_students.stretch_dir, stretch_students.manifest_path),
+    "released_untuned": ((extra_students.SECTION, stretch_students.SECTION, released_untuned.SECTION), released_untuned.folder,
+                         released_untuned.manifest_path),
 }
 
 
@@ -59,7 +63,7 @@ def sampler_args(run, run_dir, cfg, folder) -> list:
     if run.get("chat"):
         extra = ["--chat", *(["--thinking"] if run.get("thinking") else []), "--answer-words", run["answer_words"]]
     elif run.get("prefix_file"):
-        extra = ["--prefix-file", folder / run["prefix_file"]]
+        extra = ["--prefix-file", folder / run["prefix_file"], *(["--answer-words", run["answer_words"]] if run.get("answer_words") else [])]
     else:
         extra = ["--adapter", model_dir(run_dir, run["student"]) / "adapter"]
     return [

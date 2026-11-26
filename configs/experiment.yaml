@@ -692,3 +692,43 @@ main_prompt_overlap:
   bootstrap: 2000
   bootstrap_seed: 0
   ci_level: 0.95
+
+released_untuned:
+  # The untuned bases of the four released models of stretch_students.released, added once
+  # access to the Llama 3.1 base was granted (2026-11-25). Locked before any base is sampled.
+  # Sampling: each base gets the untuned prompt of extra_students.untuned (the same prefix file
+  # of `shots` Dolly question and human answer pairs in the training format, then the test
+  # prompt; generation stops at the next "###" header, after at most max_new_tokens new tokens,
+  # the main sampling max_tokens of the untuned runs), with the released models' prompts
+  # (runs/prompts/stretch_released.jsonl), samples_per_prompt, temperature and top_p, and every
+  # answer is cut to its first answer_words words, as the released answers were. Stage
+  # `released`, students named released__<base>__untuned.
+  bases:
+    llama: meta-llama/Llama-3.1-8B       # base of R1-Distill-Llama-8B and Llama-3.1-Tulu-3-8B
+    qwen: Qwen/Qwen2.5-7B                # base of Qwen2.5-7B-Instruct
+    qwen_math: Qwen/Qwen2.5-Math-7B      # base of R1-Distill-Qwen-7B
+  max_new_tokens: 256
+  gen_batch: 20
+  # Analysis. Answers are taken and rewritten as in stretch_analysis (the main_style_norm
+  # rewriter, instruction, samples_per_cell, min_pairs and min_words; the bases into
+  # runs/style_norm/released_untuned_students.jsonl). The seven groups (four released models,
+  # three bases) enter one analysis on the prompts where every group has at least min_pairs
+  # usable source and rewrite pairs, with one word budget per prompt across the seven groups and
+  # both stages. Untuned answers are shorter than released ones, so this budget is shorter than
+  # the one behind the released numbers of stretch_analysis, and the released pairs are measured
+  # again here at that budget. d is the energy distance on embeddings, averaged over prompts.
+  # Pairs, each a released pair and the bases it starts from:
+  #   r1     R1-Distill-Qwen-7B vs R1-Distill-Llama-8B;  Qwen2.5-Math-7B vs Llama-3.1-8B
+  #   other  Qwen2.5-7B-Instruct vs Llama-3.1-Tulu-3-8B;  Qwen2.5-7B vs Llama-3.1-8B
+  # Reported for each pair, written and rewritten: d released, U (the bases), and
+  # change = d released - U; across pairs: change r1 - change other, U r1 - U other and
+  # d r1 - d other. For each base: the share of samples that are answers, the share reaching the
+  # answer_words cut, and the prompts with at least min_pairs usable pairs. If fewer than
+  # min_prompts prompts pass with all seven groups, the r1 pair is left out (its base's usable
+  # share is still reported) and the other pair is analyzed with its four groups alone.
+  # Descriptive, with no state. 95% prompt-bootstrap intervals.
+  min_prompts: 50
+  embedder: sentence-transformers/all-mpnet-base-v2
+  bootstrap: 2000
+  bootstrap_seed: 0
+  ci_level: 0.95

@@ -3,6 +3,8 @@
   h3       the students in runs/train_data/manifest_h3.json, into runs/style_norm/h3_students.jsonl
   extra    the students in runs/train_data/manifest_extra.json, into runs/style_norm/extra_students.jsonl
   stretch  the students in runs/train_data/manifest_stretch.json, into runs/style_norm/stretch_students.jsonl
+  released_untuned  the untuned bases in runs/train_data/manifest_released_untuned.json, into
+           runs/style_norm/released_untuned_students.jsonl
 
 The first `main_style_norm.samples_per_cell` usable answers per student and prompt are rewritten
 by the main_style_norm rewriter with its instruction and seeds. Students whose answers are not all
@@ -14,7 +16,7 @@ import asyncio
 from sameteacher.core.config import add_common_args, load_yaml, read_json, read_jsonl
 from sameteacher.core.lock import verify_lock
 from sameteacher.core.paths import students_path, style_norm_dir
-from sameteacher.data import extra_students, h3_data, stretch_students
+from sameteacher.data import extra_students, h3_data, released_untuned, stretch_students
 from sameteacher.style_norm import main_retention as h2
 
 # Lock sections and run list for each set of students.
@@ -22,6 +24,7 @@ SETS = {
     "h3": (("h3_cross_style", "h3_analysis"), h3_data.manifest_path),
     "extra": (("extra_students", "extra_analysis"), extra_students.manifest_path),
     "stretch": (("extra_students", "stretch_students", "stretch_analysis"), stretch_students.manifest_path),
+    "released_untuned": (("extra_students", "stretch_students", "stretch_analysis", "released_untuned"), released_untuned.manifest_path),
 }
 
 

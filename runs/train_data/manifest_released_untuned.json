@@ -1,0 +1,54 @@
+{
+  "section": "released_untuned",
+  "runs": [
+    {
+      "student": "released__llama__untuned",
+      "stage": "released",
+      "base": "llama",
+      "source": "untuned",
+      "model": "meta-llama/Llama-3.1-8B",
+      "seed": 0,
+      "prefix_file": "untuned_prefix.txt",
+      "prompts_split": "stretch_released",
+      "samples": 20,
+      "gen_batch": 20,
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "max_new_tokens": 256,
+      "answer_words": 150
+    },
+    {
+      "student": "released__qwen__untuned",
+      "stage": "released",
+      "base": "qwen",
+      "source": "untuned",
+      "model": "Qwen/Qwen2.5-7B",
+      "seed": 0,
+      "prefix_file": "untuned_prefix.txt",
+      "prompts_split": "stretch_released",
+      "samples": 20,
+      "gen_batch": 20,
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "max_new_tokens": 256,
+      "answer_words": 150
+    },
+    {
+      "student": "released__qwen_math__untuned",
+      "stage": "released",
+      "base": "qwen_math",
+      "source": "untuned",
+      "model": "Qwen/Qwen2.5-Math-7B",
+      "seed": 0,
+      "prefix_file": "untuned_prefix.txt",
+      "prompts_split": "stretch_released",
+      "samples": 20,
+      "gen_batch": 20,
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "max_new_tokens": 256,
+      "answer_words": 150
+    }
+  ],
+  "prefix_sha256": "f848463f8d2a7af12936187cfc309dc72aadf8252170d23ddf9c63134a56d334"
+}
