@@ -732,3 +732,17 @@ released_untuned:
   bootstrap: 2000
   bootstrap_seed: 0
   ci_level: 0.95
+
+main_order_shuffle:
+  # Does the share of the shared-teacher effect that survives the neutral rewrite depend on the
+  # order of the rewritten sentences? The main_style_norm instruction keeps every idea in its
+  # original order. Raised in a review after the main results; locked before any shuffled value is
+  # computed. Same answers, prompts, word budgets, embedder and bootstrap as main_style_norm. A
+  # third stage takes each rewritten answer after the cut to its prompt's word budget and puts its
+  # sentences (split after ., ! or ? followed by a space) in a random order other than the original
+  # one, drawn with stable_seed(shuffle_seed, prompt, base, teacher, seed, answer index); the words
+  # stay the same and only their order changes. Reported, with no state: S and carryover in the
+  # shuffled stage, R shuffled = S shuffled / S written and R shuffled - R, pooled, per teacher pair
+  # and per base pair, from one prompt bootstrap; the share of rewritten answers with at least two
+  # sentences after the cut, and their mean number of sentences.
+  shuffle_seed: 0

@@ -1,0 +1,8 @@
+{
+  "section": "main_order_shuffle",
+  "sha256": "f18b6a223972990b1732f6302db6a26eb72ba230e24275f99e8f93bcdd877a53",
+  "locked_at": "2026-11-26T23:54:29.165969+00:00",
+  "values": {
+    "shuffle_seed": 0
+  }
+}
