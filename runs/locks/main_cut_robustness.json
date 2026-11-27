@@ -1,0 +1,12 @@
+{
+  "section": "main_cut_robustness",
+  "sha256": "425d3b92b83b8f1f5011bd87520c861c4c488f2f297a2447d2ef16635b237cec",
+  "locked_at": "2026-11-27T05:41:35.924319+00:00",
+  "values": {
+    "cuts": [
+      "words",
+      "sentences",
+      "full"
+    ]
+  }
+}

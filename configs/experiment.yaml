@@ -746,3 +746,28 @@ main_order_shuffle:
   # and per base pair, from one prompt bootstrap; the share of rewritten answers with at least two
   # sentences after the cut, and their mean number of sentences.
   shuffle_seed: 0
+
+main_cut_robustness:
+  # Does the shared-teacher effect depend on cutting every answer to its prompt's word budget?
+  # main_shared_teacher and main_style_norm cut each cleaned answer to its first `budget` words
+  # (budget = the smallest median word count among the compared groups on the prompt, at least
+  # min_words), which drops more of the longer answers and ends most cut answers inside a sentence.
+  # Raised in a review after the main results; locked before any value under another cut is
+  # computed. Repeats H1 (main_shared_teacher: its prompts, answers, budgets, embedder and
+  # bootstrap; S, T, N and carryover, pooled, per teacher pair and per base pair) and H2
+  # (main_style_norm: its answers, rewrites, prompts and budgets; S written, S rewritten, R and the
+  # carryover of both stages) under each cut of the same cleaned texts:
+  #   words      the locked cut, which reproduces h1.json and h2.json
+  #   sentences  the longest run of whole sentences from the start (split after ., ! or ? followed
+  #              by a space) whose word count is at most the budget; an answer whose first sentence
+  #              is longer than the budget keeps that sentence whole
+  #   full       no cut; the embedder still reads at most its own input limit (384 tokens for
+  #              all-mpnet-base-v2)
+  # Under `full` the length differences between the teachers' students enter the distance, so it
+  # shows whether the conclusions depend on the cut, not a value free of length. Reported, with no
+  # state: each quantity under each cut and its difference from `words`, from one prompt bootstrap
+  # for the H1 prompts and one for the H2 prompts; the mean words of the compared texts per
+  # teacher's students (and per stage for H2); under `sentences`, the share of answers kept whole
+  # because their first sentence is longer than the budget. Readings as in the locked rules: the
+  # lower bound of S above 0, of the carryover at least 0.10, and of R at least 0.5.
+  cuts: [words, sentences, full]

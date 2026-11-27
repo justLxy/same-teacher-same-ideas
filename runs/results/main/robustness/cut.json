@@ -1,0 +1,1349 @@
+{
+  "note": "main_cut_robustness: H1 and H2 under each cut of the cleaned answers; no state",
+  "cuts": [
+    "words",
+    "sentences",
+    "full"
+  ],
+  "embedder": "sentence-transformers/all-mpnet-base-v2",
+  "h1": {
+    "prompts_used": 188,
+    "mean_words_of_compared_student_texts": {
+      "words": {
+        "deepseek": 44.089816933638446,
+        "gemma": 46.34500523064169,
+        "glm": 45.48461021770912
+      },
+      "sentences": {
+        "deepseek": 40.60713722086325,
+        "gemma": 39.545605274065885,
+        "glm": 40.89430637322692
+      },
+      "full": {
+        "deepseek": 61.18259291406928,
+        "gemma": 83.40388449164084,
+        "glm": 79.44334031372239
+      }
+    },
+    "share_kept_whole_past_the_budget": {
+      "sentences": 0.08363985707987603
+    },
+    "readings": {
+      "words": {
+        "S lower bound above 0": true,
+        "carryover lower bound at least 0.10": true
+      },
+      "sentences": {
+        "S lower bound above 0": true,
+        "carryover lower bound at least 0.10": true
+      },
+      "full": {
+        "S lower bound above 0": true,
+        "carryover lower bound at least 0.10": true
+      }
+    },
+    "pooled": {
+      "S words": {
+        "estimate": 0.03202797202694312,
+        "ci_low": 0.02913643074646839,
+        "ci_high": 0.0351534234020308
+      },
+      "T words": {
+        "estimate": 0.05696115609625423,
+        "ci_low": 0.05305970048574411,
+        "ci_high": 0.061140842439356746
+      },
+      "N words": {
+        "estimate": 0.009277954272063365,
+        "ci_low": 0.008439354855745233,
+        "ci_high": 0.010136401487558514
+      },
+      "carryover words": {
+        "estimate": 0.6716824961761385,
+        "ci_low": 0.647196199358251,
+        "ci_high": 0.6950455851761984
+      },
+      "S sentences": {
+        "estimate": 0.033042804992923856,
+        "ci_low": 0.029820331129398844,
+        "ci_high": 0.036470246107528144
+      },
+      "T sentences": {
+        "estimate": 0.05862156455502205,
+        "ci_low": 0.05427620011405687,
+        "ci_high": 0.06315169268742395
+      },
+      "N sentences": {
+        "estimate": 0.009534528199979882,
+        "ci_low": 0.008736423349106895,
+        "ci_high": 0.010407053319247723
+      },
+      "carryover sentences": {
+        "estimate": 0.6731472797405854,
+        "ci_low": 0.6485022266564352,
+        "ci_high": 0.6965346665133761
+      },
+      "S sentences - words": {
+        "estimate": 0.0010148329659807331,
+        "ci_low": -0.0002975032521724487,
+        "ci_high": 0.002635399472102484
+      },
+      "carryover sentences - words": {
+        "estimate": 0.0014647835644469032,
+        "ci_low": -0.008180542588312576,
+        "ci_high": 0.012329182737120687
+      },
+      "S full": {
+        "estimate": 0.034695730873659764,
+        "ci_low": 0.03199591815984402,
+        "ci_high": 0.03754000100144484
+      },
+      "T full": {
+        "estimate": 0.05964616102878887,
+        "ci_low": 0.05622285672671216,
+        "ci_high": 0.06337596400369067
+      },
+      "N full": {
+        "estimate": 0.009781051431830614,
+        "ci_low": 0.008981199641351415,
+        "ci_high": 0.01064885580708648
+      },
+      "carryover full": {
+        "estimate": 0.6957917300110814,
+        "ci_low": 0.6722278210296303,
+        "ci_high": 0.7187524176468899
+      },
+      "S full - words": {
+        "estimate": 0.0026677588467166405,
+        "ci_low": 0.0008407689032120588,
+        "ci_high": 0.0045102298451528385
+      },
+      "carryover full - words": {
+        "estimate": 0.0241092338349429,
+        "ci_low": 0.013696765725501355,
+        "ci_high": 0.03508047187591849
+      }
+    },
+    "teacher deepseek-gemma": {
+      "S words": {
+        "estimate": 0.050807429364551425,
+        "ci_low": 0.04547529283946215,
+        "ci_high": 0.056202682568724675
+      },
+      "T words": {
+        "estimate": 0.08189763600629012,
+        "ci_low": 0.07534447955428335,
+        "ci_high": 0.08868595121208224
+      },
+      "N words": {
+        "estimate": 0.009325709424111126,
+        "ci_low": 0.008346437311384253,
+        "ci_high": 0.010255533344130643
+      },
+      "carryover words": {
+        "estimate": 0.7000975688170289,
+        "ci_low": 0.6751844183883352,
+        "ci_high": 0.7236171956082948
+      },
+      "S sentences": {
+        "estimate": 0.05266790532626631,
+        "ci_low": 0.04676315595907392,
+        "ci_high": 0.0587821005910365
+      },
+      "T sentences": {
+        "estimate": 0.08480638466973646,
+        "ci_low": 0.07780202191612187,
+        "ci_high": 0.09233051258354509
+      },
+      "N sentences": {
+        "estimate": 0.00962851083781016,
+        "ci_low": 0.008685652359655145,
+        "ci_high": 0.01059242056408281
+      },
+      "carryover sentences": {
+        "estimate": 0.7005772129711318,
+        "ci_low": 0.6750660983557634,
+        "ci_high": 0.7242079826273472
+      },
+      "S sentences - words": {
+        "estimate": 0.0018604759617148817,
+        "ci_low": -0.000529312257272561,
+        "ci_high": 0.00483439009874426
+      },
+      "carryover sentences - words": {
+        "estimate": 0.0004796441541029539,
+        "ci_low": -0.009958600241778947,
+        "ci_high": 0.01228159137020438
+      },
+      "S full": {
+        "estimate": 0.05516927348489455,
+        "ci_low": 0.05021410212419792,
+        "ci_high": 0.06039860206835965
+      },
+      "T full": {
+        "estimate": 0.08619106560473284,
+        "ci_low": 0.0804356691672349,
+        "ci_high": 0.09214457528067656
+      },
+      "N full": {
+        "estimate": 0.009849757782156075,
+        "ci_low": 0.008892322476800517,
+        "ci_high": 0.010759781164432334
+      },
+      "carryover full": {
+        "estimate": 0.7226660776248726,
+        "ci_low": 0.6981992536959097,
+        "ci_high": 0.7458182664887641
+      },
+      "S full - words": {
+        "estimate": 0.004361844120343128,
+        "ci_low": 0.0008944642252286788,
+        "ci_high": 0.007879286974821157
+      },
+      "carryover full - words": {
+        "estimate": 0.022568508807843668,
+        "ci_low": 0.01173933180638933,
+        "ci_high": 0.03430698939593931
+      }
+    },
+    "teacher deepseek-glm": {
+      "S words": {
+        "estimate": 0.020356923024705115,
+        "ci_low": 0.017543864347351838,
+        "ci_high": 0.023545930710884653
+      },
+      "T words": {
+        "estimate": 0.04111231499651522,
+        "ci_low": 0.03738162484406057,
+        "ci_high": 0.04535170548649239
+      },
+      "N words": {
+        "estimate": 0.009152897420264587,
+        "ci_low": 0.008266091713843085,
+        "ci_high": 0.010108129356423398
+      },
+      "carryover words": {
+        "estimate": 0.6369616397462935,
+        "ci_low": 0.5935527243123375,
+        "ci_high": 0.6774665029824948
+      },
+      "S sentences": {
+        "estimate": 0.020989392208151218,
+        "ci_low": 0.01796716899281533,
+        "ci_high": 0.024309273498166594
+      },
+      "T sentences": {
+        "estimate": 0.0420089389770705,
+        "ci_low": 0.038151873022500615,
+        "ci_high": 0.04646670058185618
+      },
+      "N sentences": {
+        "estimate": 0.009348382062511195,
+        "ci_low": 0.008457916253659374,
+        "ci_high": 0.010303307374743229
+      },
+      "carryover sentences": {
+        "estimate": 0.6426526119275892,
+        "ci_low": 0.600605998832815,
+        "ci_high": 0.6815457836065479
+      },
+      "S sentences - words": {
+        "estimate": 0.0006324691834461021,
+        "ci_low": -0.0003230334326354859,
+        "ci_high": 0.0015228402210066072
+      },
+      "carryover sentences - words": {
+        "estimate": 0.0056909721812956615,
+        "ci_low": -0.008343468224129943,
+        "ci_high": 0.02028482668951118
+      },
+      "S full": {
+        "estimate": 0.02081200814533647,
+        "ci_low": 0.018257983196512097,
+        "ci_high": 0.023598339787036335
+      },
+      "T full": {
+        "estimate": 0.041804243323193636,
+        "ci_low": 0.0383593241809225,
+        "ci_high": 0.04588427848590589
+      },
+      "N full": {
+        "estimate": 0.009507482263038047,
+        "ci_low": 0.008654372413698395,
+        "ci_high": 0.010424006120369813
+      },
+      "carryover full": {
+        "estimate": 0.6443992357800912,
+        "ci_low": 0.6061265156522067,
+        "ci_high": 0.6797664242688155
+      },
+      "S full - words": {
+        "estimate": 0.00045508512063135304,
+        "ci_low": -0.0007914580319625715,
+        "ci_high": 0.0016365341674844617
+      },
+      "carryover full - words": {
+        "estimate": 0.007437596033797678,
+        "ci_low": -0.006091457429808335,
+        "ci_high": 0.022281283087416993
+      }
+    },
+    "teacher gemma-glm": {
+      "S words": {
+        "estimate": 0.024919563691572843,
+        "ci_low": 0.022268506093574524,
+        "ci_high": 0.02783035136556723
+      },
+      "T words": {
+        "estimate": 0.047873517285957345,
+        "ci_low": 0.043798197657627255,
+        "ci_high": 0.052139567677046646
+      },
+      "N words": {
+        "estimate": 0.009355255971814379,
+        "ci_low": 0.008421247396650039,
+        "ci_high": 0.010381927464137497
+      },
+      "carryover words": {
+        "estimate": 0.646954531211485,
+        "ci_low": 0.6139481970081077,
+        "ci_high": 0.6788226221579409
+      },
+      "S sentences": {
+        "estimate": 0.02547111744435403,
+        "ci_low": 0.022361098589570836,
+        "ci_high": 0.028954591711805477
+      },
+      "T sentences": {
+        "estimate": 0.04904937001825916,
+        "ci_low": 0.044536243263273594,
+        "ci_high": 0.05393692584285064
+      },
+      "N sentences": {
+        "estimate": 0.009626691699618295,
+        "ci_low": 0.00868098348866082,
+        "ci_high": 0.010704953403471329
+      },
+      "carryover sentences": {
+        "estimate": 0.64610317032443,
+        "ci_low": 0.6128284105092486,
+        "ci_high": 0.6792046624554303
+      },
+      "S sentences - words": {
+        "estimate": 0.0005515537527811878,
+        "ci_low": -0.0006684602078246936,
+        "ci_high": 0.0020050452169327513
+      },
+      "carryover sentences - words": {
+        "estimate": -0.0008513608870550637,
+        "ci_low": -0.014406167449115841,
+        "ci_high": 0.013866310382876612
+      },
+      "S full": {
+        "estimate": 0.028105910990748283,
+        "ci_low": 0.025536189751862504,
+        "ci_high": 0.03080968788661315
+      },
+      "T full": {
+        "estimate": 0.05094317415844012,
+        "ci_low": 0.04743418898996268,
+        "ci_high": 0.05470372645725225
+      },
+      "N full": {
+        "estimate": 0.009985914250297719,
+        "ci_low": 0.009067161272477819,
+        "ci_high": 0.010984016733249528
+      },
+      "carryover full": {
+        "estimate": 0.6862253738112192,
+        "ci_low": 0.6583852906138045,
+        "ci_high": 0.714947507615305
+      },
+      "S full - words": {
+        "estimate": 0.0031863472991754405,
+        "ci_low": 0.001636491654480396,
+        "ci_high": 0.004847038400684573
+      },
+      "carryover full - words": {
+        "estimate": 0.039270842599734124,
+        "ci_low": 0.02373161126498435,
+        "ci_high": 0.05537376119188994
+      }
+    },
+    "base X-Y": {
+      "S words": {
+        "estimate": 0.03632929868896333,
+        "ci_low": 0.03276206496868127,
+        "ci_high": 0.04014954895127516
+      },
+      "T words": {
+        "estimate": 0.060613834132751204,
+        "ci_low": 0.05598785612932957,
+        "ci_high": 0.06551419266948397
+      },
+      "N words": {
+        "estimate": 0.009465790743617763,
+        "ci_low": 0.008517423293227556,
+        "ci_high": 0.010453568075875809
+      },
+      "carryover words": {
+        "estimate": 0.7102773885712625,
+        "ci_low": 0.6820170234073342,
+        "ci_high": 0.7405479510303669
+      },
+      "S sentences": {
+        "estimate": 0.0372198237718279,
+        "ci_low": 0.03331827310062916,
+        "ci_high": 0.04146007203076466
+      },
+      "T sentences": {
+        "estimate": 0.06248660063206979,
+        "ci_low": 0.05732117343379691,
+        "ci_high": 0.067667406856439
+      },
+      "N sentences": {
+        "estimate": 0.009863325199489705,
+        "ci_low": 0.0089184095941688,
+        "ci_high": 0.010862477152875515
+      },
+      "carryover sentences": {
+        "estimate": 0.7072882382533032,
+        "ci_low": 0.6786896143836391,
+        "ci_high": 0.7376593829559948
+      },
+      "S sentences - words": {
+        "estimate": 0.0008905250828645725,
+        "ci_low": -0.0005666124059064595,
+        "ci_high": 0.002551334729187708
+      },
+      "carryover sentences - words": {
+        "estimate": -0.0029891503179593215,
+        "ci_low": -0.013785695402242493,
+        "ci_high": 0.007796308470627489
+      },
+      "S full": {
+        "estimate": 0.038498952297876914,
+        "ci_low": 0.03536686137013309,
+        "ci_high": 0.04171511408857492
+      },
+      "T full": {
+        "estimate": 0.06281719296091834,
+        "ci_low": 0.05896257715602173,
+        "ci_high": 0.06683062797223321
+      },
+      "N full": {
+        "estimate": 0.009905169901546234,
+        "ci_low": 0.008990506246939227,
+        "ci_high": 0.010845363690048057
+      },
+      "carryover full": {
+        "estimate": 0.7276031055300528,
+        "ci_low": 0.7016276260521269,
+        "ci_high": 0.7529065828822246
+      },
+      "S full - words": {
+        "estimate": 0.0021696536089135868,
+        "ci_low": -0.00012976646884231815,
+        "ci_high": 0.004246322299706789
+      },
+      "carryover full - words": {
+        "estimate": 0.01732571695879026,
+        "ci_low": 0.0042508918514872675,
+        "ci_high": 0.03065806827075124
+      }
+    },
+    "base X-Z": {
+      "S words": {
+        "estimate": 0.02957753252922032,
+        "ci_low": 0.026605306209671945,
+        "ci_high": 0.03274446171748769
+      },
+      "T words": {
+        "estimate": 0.055790886714967514,
+        "ci_low": 0.051850342188389506,
+        "ci_high": 0.0601173336073076
+      },
+      "N words": {
+        "estimate": 0.009494906915694814,
+        "ci_low": 0.00864344564959007,
+        "ci_high": 0.010494646745899245
+      },
+      "carryover words": {
+        "estimate": 0.6388790702229609,
+        "ci_low": 0.6012545489223201,
+        "ci_high": 0.6724275656910715
+      },
+      "S sentences": {
+        "estimate": 0.0304072775985896,
+        "ci_low": 0.027422000579330467,
+        "ci_high": 0.03356287839915676
+      },
+      "T sentences": {
+        "estimate": 0.057360541981559654,
+        "ci_low": 0.05330438779816928,
+        "ci_high": 0.06187047311598394
+      },
+      "N sentences": {
+        "estimate": 0.009653116291341012,
+        "ci_low": 0.008753729431571872,
+        "ci_high": 0.01071165455386531
+      },
+      "carryover sentences": {
+        "estimate": 0.6373699095825232,
+        "ci_low": 0.6015595632783297,
+        "ci_high": 0.6683380438643054
+      },
+      "S sentences - words": {
+        "estimate": 0.0008297450693692809,
+        "ci_low": -0.000832947193578136,
+        "ci_high": 0.002529138884924697
+      },
+      "carryover sentences - words": {
+        "estimate": -0.0015091606404377123,
+        "ci_low": -0.015544286292550188,
+        "ci_high": 0.013680287769698736
+      },
+      "S full": {
+        "estimate": 0.03194025265151257,
+        "ci_low": 0.029304958336125713,
+        "ci_high": 0.03477842456435857
+      },
+      "T full": {
+        "estimate": 0.058333830135328134,
+        "ci_low": 0.05506441325184336,
+        "ci_high": 0.06210512763499776
+      },
+      "N full": {
+        "estimate": 0.010063044058450037,
+        "ci_low": 0.009155627241427116,
+        "ci_high": 0.011073750635021843
+      },
+      "carryover full": {
+        "estimate": 0.6616890928737553,
+        "ci_low": 0.628133222393069,
+        "ci_high": 0.692050684977992
+      },
+      "S full - words": {
+        "estimate": 0.002362720122292248,
+        "ci_low": 0.00011118401408525951,
+        "ci_high": 0.004353587822570295
+      },
+      "carryover full - words": {
+        "estimate": 0.02281002265079446,
+        "ci_low": 0.004373933143832978,
+        "ci_high": 0.03910758211912499
+      }
+    },
+    "base Y-Z": {
+      "S words": {
+        "estimate": 0.030177084862645726,
+        "ci_low": 0.027154088603703993,
+        "ci_high": 0.03332537781657066
+      },
+      "T words": {
+        "estimate": 0.054478747441044,
+        "ci_low": 0.050381968356026166,
+        "ci_high": 0.05877296909040166
+      },
+      "N words": {
+        "estimate": 0.008873165156877518,
+        "ci_low": 0.007963341710723132,
+        "ci_high": 0.009799041671985543
+      },
+      "carryover words": {
+        "estimate": 0.6616971728288342,
+        "ci_low": 0.6313830331019431,
+        "ci_high": 0.6902739886828879
+      },
+      "S sentences": {
+        "estimate": 0.03150131360835406,
+        "ci_low": 0.028067613404517196,
+        "ci_high": 0.03514034254659904
+      },
+      "T sentences": {
+        "estimate": 0.05601755105143669,
+        "ci_low": 0.05150474864976348,
+        "ci_high": 0.06077174830553131
+      },
+      "N sentences": {
+        "estimate": 0.009087143109108931,
+        "ci_low": 0.00819877807630634,
+        "ci_high": 0.010060011462183405
+      },
+      "carryover sentences": {
+        "estimate": 0.6712346001139743,
+        "ci_low": 0.6391457621512147,
+        "ci_high": 0.7014999761156526
+      },
+      "S sentences - words": {
+        "estimate": 0.001324228745708332,
+        "ci_low": -0.00011162189502558043,
+        "ci_high": 0.0029871192499496373
+      },
+      "carryover sentences - words": {
+        "estimate": 0.009537427285140065,
+        "ci_low": -0.004514852028079577,
+        "ci_high": 0.023398062225039568
+      },
+      "S full": {
+        "estimate": 0.03364798767158982,
+        "ci_low": 0.030727761978734138,
+        "ci_high": 0.03680473892627339
+      },
+      "T full": {
+        "estimate": 0.05778745999012014,
+        "ci_low": 0.053924345311624114,
+        "ci_high": 0.0618249248499498
+      },
+      "N full": {
+        "estimate": 0.009374940335495567,
+        "ci_low": 0.00849701875529079,
+        "ci_high": 0.01025662952942111
+      },
+      "carryover full": {
+        "estimate": 0.6950265739448168,
+        "ci_low": 0.667955016281904,
+        "ci_high": 0.7219414627462098
+      },
+      "S full - words": {
+        "estimate": 0.003470902808944097,
+        "ci_low": 0.0019462196799281029,
+        "ci_high": 0.0050846365813996515
+      },
+      "carryover full - words": {
+        "estimate": 0.03332940111598259,
+        "ci_low": 0.021524399574552502,
+        "ci_high": 0.04623999357052693
+      }
+    }
+  },
+  "h2": {
+    "prompts_used": 187,
+    "answers_used": 75300,
+    "mean_words_of_compared_student_texts": {
+      "words": {
+        "deepseek written": 44.75935360611368,
+        "deepseek rewritten": 46.40606591307117,
+        "gemma written": 47.07710737531446,
+        "gemma rewritten": 47.370323044363694,
+        "glm written": 46.234233875780845,
+        "glm rewritten": 46.82270321887558
+      },
+      "sentences": {
+        "deepseek written": 41.376014965769784,
+        "deepseek rewritten": 39.84604362362681,
+        "gemma written": 40.50696801501417,
+        "gemma rewritten": 38.58028191510602,
+        "glm written": 41.68447857398639,
+        "glm rewritten": 38.8204750726137
+      },
+      "full": {
+        "deepseek written": 61.164384652125456,
+        "deepseek rewritten": 78.94857506766438,
+        "gemma written": 82.75158726989578,
+        "gemma rewritten": 93.68094876811884,
+        "glm written": 79.4755102852823,
+        "glm rewritten": 94.2681335296224
+      }
+    },
+    "share_kept_whole_past_the_budget": {
+      "sentences": {
+        "written": 0.08739707835325365,
+        "rewritten": 0.07410358565737052
+      }
+    },
+    "readings": {
+      "words": {
+        "R lower bound at least 0.5": true,
+        "every pair's R lower bound at least 0.5": true
+      },
+      "sentences": {
+        "R lower bound at least 0.5": true,
+        "every pair's R lower bound at least 0.5": true
+      },
+      "full": {
+        "R lower bound at least 0.5": true,
+        "every pair's R lower bound at least 0.5": true
+      }
+    },
+    "pooled": {
+      "S written words": {
+        "estimate": 0.03162158765068477,
+        "ci_low": 0.02869527935794835,
+        "ci_high": 0.03467621891149092
+      },
+      "S rewritten words": {
+        "estimate": 0.024940909314739537,
+        "ci_low": 0.022534893708802958,
+        "ci_high": 0.027492027566345507
+      },
+      "R words": {
+        "estimate": 0.788730458136862,
+        "ci_low": 0.751904358769929,
+        "ci_high": 0.826505754377576
+      },
+      "carryover written words": {
+        "estimate": 0.6670466247395823,
+        "ci_low": 0.6411778061546091,
+        "ci_high": 0.6931814359180637
+      },
+      "carryover rewritten words": {
+        "estimate": 0.6585448859563244,
+        "ci_low": 0.6289985651054155,
+        "ci_high": 0.6874180019135405
+      },
+      "S written sentences": {
+        "estimate": 0.03219864119958145,
+        "ci_low": 0.028972828949381,
+        "ci_high": 0.03571183360154389
+      },
+      "S rewritten sentences": {
+        "estimate": 0.0250789392027531,
+        "ci_low": 0.02251329850217309,
+        "ci_high": 0.027766343297510248
+      },
+      "R sentences": {
+        "estimate": 0.778881911422992,
+        "ci_low": 0.7386271621225867,
+        "ci_high": 0.8191440758539879
+      },
+      "carryover written sentences": {
+        "estimate": 0.664252824267717,
+        "ci_low": 0.6365764318769656,
+        "ci_high": 0.6910650900364641
+      },
+      "carryover rewritten sentences": {
+        "estimate": 0.6426479236469498,
+        "ci_low": 0.6124110198681271,
+        "ci_high": 0.671659033162367
+      },
+      "S written full": {
+        "estimate": 0.03432326913155401,
+        "ci_low": 0.03150726718091608,
+        "ci_high": 0.03723390442598666
+      },
+      "S rewritten full": {
+        "estimate": 0.02874412941422692,
+        "ci_low": 0.026329328728708294,
+        "ci_high": 0.03125775476477757
+      },
+      "R full": {
+        "estimate": 0.837453137230507,
+        "ci_low": 0.7979449629338052,
+        "ci_high": 0.8761039998775073
+      },
+      "carryover written full": {
+        "estimate": 0.689628814953679,
+        "ci_low": 0.6646542080523883,
+        "ci_high": 0.7141536301025511
+      },
+      "carryover rewritten full": {
+        "estimate": 0.6941078833539569,
+        "ci_low": 0.6659697811685898,
+        "ci_high": 0.720339391931995
+      },
+      "R sentences - words": {
+        "estimate": -0.009848546713870032,
+        "ci_low": -0.039076665015204064,
+        "ci_high": 0.01812905393993337
+      },
+      "S written sentences - words": {
+        "estimate": 0.0005770535488966791,
+        "ci_low": -0.0006571533352838887,
+        "ci_high": 0.002035320598801533
+      },
+      "R full - words": {
+        "estimate": 0.048722679093644916,
+        "ci_low": 0.021518131067637846,
+        "ci_high": 0.07537501280849579
+      },
+      "S written full - words": {
+        "estimate": 0.0027016814808692377,
+        "ci_low": 0.0010440630269041098,
+        "ci_high": 0.004372787873176504
+      }
+    },
+    "teacher deepseek-gemma": {
+      "S written words": {
+        "estimate": 0.050697861821090935,
+        "ci_low": 0.045387507546423796,
+        "ci_high": 0.05624032190357677
+      },
+      "S rewritten words": {
+        "estimate": 0.04004692733228784,
+        "ci_low": 0.03564365457992054,
+        "ci_high": 0.04461383949157317
+      },
+      "R words": {
+        "estimate": 0.7899135366617734,
+        "ci_low": 0.7507004573068004,
+        "ci_high": 0.8316251630466976
+      },
+      "carryover written words": {
+        "estimate": 0.6972388645399845,
+        "ci_low": 0.6694149424831699,
+        "ci_high": 0.7240791771915374
+      },
+      "carryover rewritten words": {
+        "estimate": 0.6851223747263443,
+        "ci_low": 0.6553971666280871,
+        "ci_high": 0.7151460701067426
+      },
+      "S written sentences": {
+        "estimate": 0.051720255910228774,
+        "ci_low": 0.045828028094148154,
+        "ci_high": 0.05811461176052558
+      },
+      "S rewritten sentences": {
+        "estimate": 0.03979358556341903,
+        "ci_low": 0.03529298156603159,
+        "ci_high": 0.04457653611278648
+      },
+      "R sentences": {
+        "estimate": 0.7694003995743767,
+        "ci_low": 0.7226597054911511,
+        "ci_high": 0.8147813060969703
+      },
+      "carryover written sentences": {
+        "estimate": 0.6924930857262637,
+        "ci_low": 0.6630186152733265,
+        "ci_high": 0.7205097318307878
+      },
+      "carryover rewritten sentences": {
+        "estimate": 0.6649435944946834,
+        "ci_low": 0.6321702421940063,
+        "ci_high": 0.6954151568683192
+      },
+      "S written full": {
+        "estimate": 0.05538485253959819,
+        "ci_low": 0.05014347909352266,
+        "ci_high": 0.06085195651834589
+      },
+      "S rewritten full": {
+        "estimate": 0.046808080853601795,
+        "ci_low": 0.04223757469036079,
+        "ci_high": 0.05145283884197847
+      },
+      "R full": {
+        "estimate": 0.8451422854314848,
+        "ci_low": 0.799300939178778,
+        "ci_high": 0.8906886302202872
+      },
+      "carryover written full": {
+        "estimate": 0.7218645457839381,
+        "ci_low": 0.6964018186319227,
+        "ci_high": 0.7468604028157602
+      },
+      "carryover rewritten full": {
+        "estimate": 0.724018103626882,
+        "ci_low": 0.6971281751175139,
+        "ci_high": 0.7488831514650788
+      },
+      "R sentences - words": {
+        "estimate": -0.02051313708739677,
+        "ci_low": -0.057549391963961076,
+        "ci_high": 0.012209482588542995
+      },
+      "S written sentences - words": {
+        "estimate": 0.0010223940891378389,
+        "ci_low": -0.0012699742273756733,
+        "ci_high": 0.003751711949859536
+      },
+      "R full - words": {
+        "estimate": 0.0552287487697114,
+        "ci_low": 0.022501747514859914,
+        "ci_high": 0.08613094016002087
+      },
+      "S written full - words": {
+        "estimate": 0.004686990718507256,
+        "ci_low": 0.0016523711738975768,
+        "ci_high": 0.007820570065901268
+      }
+    },
+    "teacher deepseek-glm": {
+      "S written words": {
+        "estimate": 0.01960794587528666,
+        "ci_low": 0.016709549261183645,
+        "ci_high": 0.022631165658463744
+      },
+      "S rewritten words": {
+        "estimate": 0.014622442892079868,
+        "ci_low": 0.01228491913967733,
+        "ci_high": 0.017239952741412504
+      },
+      "R words": {
+        "estimate": 0.7457406800836599,
+        "ci_low": 0.6830919666145625,
+        "ci_high": 0.8101600024588097
+      },
+      "carryover written words": {
+        "estimate": 0.6371875629533608,
+        "ci_low": 0.5887127649588241,
+        "ci_high": 0.6822913410231114
+      },
+      "carryover rewritten words": {
+        "estimate": 0.6227599391810982,
+        "ci_low": 0.567214207763847,
+        "ci_high": 0.6750508982806571
+      },
+      "S written sentences": {
+        "estimate": 0.020409239727946924,
+        "ci_low": 0.017338078363086,
+        "ci_high": 0.023620629502885716
+      },
+      "S rewritten sentences": {
+        "estimate": 0.014815651743594761,
+        "ci_low": 0.01236322386757316,
+        "ci_high": 0.017449631321947278
+      },
+      "R sentences": {
+        "estimate": 0.7259286451178918,
+        "ci_low": 0.6574549958573742,
+        "ci_high": 0.7952638018572987
+      },
+      "carryover written sentences": {
+        "estimate": 0.6481428982333679,
+        "ci_low": 0.601998105706074,
+        "ci_high": 0.6912886497891035
+      },
+      "carryover rewritten sentences": {
+        "estimate": 0.6143577533227269,
+        "ci_low": 0.560718168624826,
+        "ci_high": 0.6647714553464323
+      },
+      "S written full": {
+        "estimate": 0.02039822102903399,
+        "ci_low": 0.017735813357855307,
+        "ci_high": 0.023142798206586126
+      },
+      "S rewritten full": {
+        "estimate": 0.016066710284073114,
+        "ci_low": 0.013801821059467862,
+        "ci_high": 0.01862536386750339
+      },
+      "R full": {
+        "estimate": 0.7876525242669161,
+        "ci_low": 0.7266610104386667,
+        "ci_high": 0.8525791622850715
+      },
+      "carryover written full": {
+        "estimate": 0.64585788133306,
+        "ci_low": 0.6046826144218614,
+        "ci_high": 0.6866242667163592
+      },
+      "carryover rewritten full": {
+        "estimate": 0.6496945805654358,
+        "ci_low": 0.6015923080195824,
+        "ci_high": 0.6944424517562073
+      },
+      "R sentences - words": {
+        "estimate": -0.01981203496576811,
+        "ci_low": -0.06023471651752823,
+        "ci_high": 0.02132460095505372
+      },
+      "S written sentences - words": {
+        "estimate": 0.0008012938526602634,
+        "ci_low": -0.00015500952469567675,
+        "ci_high": 0.0017465709161347714
+      },
+      "R full - words": {
+        "estimate": 0.04191184418325622,
+        "ci_low": 0.0034215009949050777,
+        "ci_high": 0.0819284773002702
+      },
+      "S written full - words": {
+        "estimate": 0.0007902751537473308,
+        "ci_low": -0.00047507980514881583,
+        "ci_high": 0.001981876578176804
+      }
+    },
+    "teacher gemma-glm": {
+      "S written words": {
+        "estimate": 0.024558955255676723,
+        "ci_low": 0.021867942205999344,
+        "ci_high": 0.02755958379800956
+      },
+      "S rewritten words": {
+        "estimate": 0.020153357719850908,
+        "ci_low": 0.01774745349849562,
+        "ci_high": 0.02271225027685403
+      },
+      "R words": {
+        "estimate": 0.8206113619264209,
+        "ci_low": 0.7682538248332531,
+        "ci_high": 0.8707138357738502
+      },
+      "carryover written words": {
+        "estimate": 0.6340884790254973,
+        "ci_low": 0.5972186045046132,
+        "ci_high": 0.6685938149284766
+      },
+      "carryover rewritten words": {
+        "estimate": 0.6360339647235925,
+        "ci_low": 0.597690164498822,
+        "ci_high": 0.673372393408431
+      },
+      "S written sentences": {
+        "estimate": 0.02446642796056864,
+        "ci_low": 0.021456643889436258,
+        "ci_high": 0.027907815990996468
+      },
+      "S rewritten sentences": {
+        "estimate": 0.020627580301245504,
+        "ci_low": 0.01796645096110859,
+        "ci_high": 0.023637691871952023
+      },
+      "R sentences": {
+        "estimate": 0.8430973387079626,
+        "ci_low": 0.7890102817424314,
+        "ci_high": 0.8953962039090143
+      },
+      "carryover written sentences": {
+        "estimate": 0.6234344746338997,
+        "ci_low": 0.5850209467166341,
+        "ci_high": 0.6608493690139395
+      },
+      "carryover rewritten sentences": {
+        "estimate": 0.6229559456890247,
+        "ci_low": 0.5814130120807045,
+        "ci_high": 0.6654780263013292
+      },
+      "S written full": {
+        "estimate": 0.02718673382602983,
+        "ci_low": 0.024597403256580087,
+        "ci_high": 0.030021882584515155
+      },
+      "S rewritten full": {
+        "estimate": 0.02335759710500585,
+        "ci_low": 0.020901556579836243,
+        "ci_high": 0.025955449958577403
+      },
+      "R full": {
+        "estimate": 0.8591542203809055,
+        "ci_low": 0.8136114409612263,
+        "ci_high": 0.9052568471297167
+      },
+      "carryover written full": {
+        "estimate": 0.6630252673234721,
+        "ci_low": 0.6292128769649635,
+        "ci_high": 0.6969915249693445
+      },
+      "carryover rewritten full": {
+        "estimate": 0.6701403341581089,
+        "ci_low": 0.6349876728596849,
+        "ci_high": 0.7041739261766492
+      },
+      "R sentences - words": {
+        "estimate": 0.022485976781541628,
+        "ci_low": -0.007376565773600878,
+        "ci_high": 0.053942391570941044
+      },
+      "S written sentences - words": {
+        "estimate": -9.25272951080823e-05,
+        "ci_low": -0.0012047547851459465,
+        "ci_high": 0.0012594553834732224
+      },
+      "R full - words": {
+        "estimate": 0.038542858454484574,
+        "ci_low": -0.0018087768456393517,
+        "ci_high": 0.07971857628672495
+      },
+      "S written full - words": {
+        "estimate": 0.0026277785703531058,
+        "ci_low": 0.0009319584246353771,
+        "ci_high": 0.0042889854113910345
+      }
+    },
+    "base X-Y": {
+      "S written words": {
+        "estimate": 0.03580367037460908,
+        "ci_low": 0.03202974036273967,
+        "ci_high": 0.039874763043062804
+      },
+      "S rewritten words": {
+        "estimate": 0.02851440665579758,
+        "ci_low": 0.025295973002798473,
+        "ci_high": 0.03192734829764196
+      },
+      "R words": {
+        "estimate": 0.7964101545303903,
+        "ci_low": 0.7587343108130294,
+        "ci_high": 0.838809103278126
+      },
+      "carryover written words": {
+        "estimate": 0.701326717649246,
+        "ci_low": 0.6682053419362406,
+        "ci_high": 0.7343377954214677
+      },
+      "carryover rewritten words": {
+        "estimate": 0.6956740471356092,
+        "ci_low": 0.6599645634814781,
+        "ci_high": 0.7317576576755386
+      },
+      "S written sentences": {
+        "estimate": 0.036317421840922536,
+        "ci_low": 0.032145761002787,
+        "ci_high": 0.04082891177441384
+      },
+      "S rewritten sentences": {
+        "estimate": 0.028383804420641937,
+        "ci_low": 0.024899404789609798,
+        "ci_high": 0.03217616693693521
+      },
+      "R sentences": {
+        "estimate": 0.7815478902926698,
+        "ci_low": 0.7380714239868793,
+        "ci_high": 0.8283084345225915
+      },
+      "carryover written sentences": {
+        "estimate": 0.6936301606134413,
+        "ci_low": 0.6571368360974524,
+        "ci_high": 0.7286391113383429
+      },
+      "carryover rewritten sentences": {
+        "estimate": 0.6741366934111329,
+        "ci_low": 0.6340650746957064,
+        "ci_high": 0.7137959629691237
+      },
+      "S written full": {
+        "estimate": 0.037923970773069436,
+        "ci_low": 0.03470324216933269,
+        "ci_high": 0.041234985881983634
+      },
+      "S rewritten full": {
+        "estimate": 0.03191797370059723,
+        "ci_low": 0.028814931750551373,
+        "ci_high": 0.034953846327649134
+      },
+      "R full": {
+        "estimate": 0.8416305848242773,
+        "ci_low": 0.7987482172691401,
+        "ci_high": 0.8866906567975779
+      },
+      "carryover written full": {
+        "estimate": 0.7155658512260478,
+        "ci_low": 0.6831170646549364,
+        "ci_high": 0.7459156437922349
+      },
+      "carryover rewritten full": {
+        "estimate": 0.7247331611953732,
+        "ci_low": 0.6905360696845574,
+        "ci_high": 0.7569959061472192
+      },
+      "R sentences - words": {
+        "estimate": -0.014862264237720524,
+        "ci_low": -0.04468222389867267,
+        "ci_high": 0.011982994453526354
+      },
+      "S written sentences - words": {
+        "estimate": 0.0005137514663134529,
+        "ci_low": -0.0009150788722905543,
+        "ci_high": 0.002129222651853907
+      },
+      "R full - words": {
+        "estimate": 0.045220430293887004,
+        "ci_low": 0.01319487277168841,
+        "ci_high": 0.07596027231772626
+      },
+      "S written full - words": {
+        "estimate": 0.0021203003984603536,
+        "ci_low": -0.0001355697790994077,
+        "ci_high": 0.004214618575646157
+      }
+    },
+    "base X-Z": {
+      "S written words": {
+        "estimate": 0.028727234490060826,
+        "ci_low": 0.025810666211136837,
+        "ci_high": 0.03171472359270855
+      },
+      "S rewritten words": {
+        "estimate": 0.0223946722693244,
+        "ci_low": 0.01995432231022618,
+        "ci_high": 0.0248487743743282
+      },
+      "R words": {
+        "estimate": 0.7795624140942842,
+        "ci_low": 0.7390481269432939,
+        "ci_high": 0.8229807612417931
+      },
+      "carryover written words": {
+        "estimate": 0.6271923226776173,
+        "ci_low": 0.5894320463489425,
+        "ci_high": 0.6644145831725721
+      },
+      "carryover rewritten words": {
+        "estimate": 0.6180304285482295,
+        "ci_low": 0.5751787525465508,
+        "ci_high": 0.6600258019777571
+      },
+      "S written sentences": {
+        "estimate": 0.029531332355226522,
+        "ci_low": 0.026348845937224183,
+        "ci_high": 0.03289395052254211
+      },
+      "S rewritten sentences": {
+        "estimate": 0.02267618638781138,
+        "ci_low": 0.0200697363995991,
+        "ci_high": 0.02524531555499834
+      },
+      "R sentences": {
+        "estimate": 0.7678687204168118,
+        "ci_low": 0.7216109774332268,
+        "ci_high": 0.8147045215241631
+      },
+      "carryover written sentences": {
+        "estimate": 0.6260398758347653,
+        "ci_low": 0.5875823957050982,
+        "ci_high": 0.6651102578681946
+      },
+      "carryover rewritten sentences": {
+        "estimate": 0.6048751326769671,
+        "ci_low": 0.5574201575364365,
+        "ci_high": 0.6506588800833737
+      },
+      "S written full": {
+        "estimate": 0.031471976775371294,
+        "ci_low": 0.028572752138138244,
+        "ci_high": 0.03447155312491682
+      },
+      "S rewritten full": {
+        "estimate": 0.026465627392298352,
+        "ci_low": 0.023960291756146206,
+        "ci_high": 0.029045496420456316
+      },
+      "R full": {
+        "estimate": 0.8409267578326789,
+        "ci_low": 0.7980066527094865,
+        "ci_high": 0.882285822444028
+      },
+      "carryover written full": {
+        "estimate": 0.6535265450856337,
+        "ci_low": 0.6171558705040832,
+        "ci_high": 0.6881534420389509
+      },
+      "carryover rewritten full": {
+        "estimate": 0.6618670604697512,
+        "ci_low": 0.6240337295717142,
+        "ci_high": 0.6969061942878246
+      },
+      "R sentences - words": {
+        "estimate": -0.011693693677472417,
+        "ci_low": -0.04870735815319534,
+        "ci_high": 0.022613007452598928
+      },
+      "S written sentences - words": {
+        "estimate": 0.0008040978651656962,
+        "ci_low": -0.0004003780875720156,
+        "ci_high": 0.0022799311039364617
+      },
+      "R full - words": {
+        "estimate": 0.06136434373839472,
+        "ci_low": 0.02712882348225769,
+        "ci_high": 0.09377870320232887
+      },
+      "S written full - words": {
+        "estimate": 0.0027447422853104676,
+        "ci_low": 0.0010017003628683145,
+        "ci_high": 0.004429911633787065
+      }
+    },
+    "base Y-Z": {
+      "S written words": {
+        "estimate": 0.03033385808738441,
+        "ci_low": 0.02719800083409751,
+        "ci_high": 0.03352382374231261
+      },
+      "S rewritten words": {
+        "estimate": 0.023913649019096636,
+        "ci_low": 0.021251439063365827,
+        "ci_high": 0.02657582117475171
+      },
+      "R words": {
+        "estimate": 0.7883484174748651,
+        "ci_low": 0.7434410100896137,
+        "ci_high": 0.8306628103561058
+      },
+      "carryover written words": {
+        "estimate": 0.6687087777630301,
+        "ci_low": 0.6333141267967157,
+        "ci_high": 0.7019466643773442
+      },
+      "carryover rewritten words": {
+        "estimate": 0.6570668411949881,
+        "ci_low": 0.6186839699689223,
+        "ci_high": 0.6935305692766325
+      },
+      "S written sentences": {
+        "estimate": 0.030747169402595285,
+        "ci_low": 0.027260260180946287,
+        "ci_high": 0.03439446637083408
+      },
+      "S rewritten sentences": {
+        "estimate": 0.024176826799805973,
+        "ci_low": 0.02133900515202438,
+        "ci_high": 0.027029902724540686
+      },
+      "R sentences": {
+        "estimate": 0.7863106513396734,
+        "ci_low": 0.7389025658566374,
+        "ci_high": 0.8300100066446356
+      },
+      "carryover written sentences": {
+        "estimate": 0.6700147189836844,
+        "ci_low": 0.6322756091790936,
+        "ci_high": 0.7054552928867394
+      },
+      "carryover rewritten sentences": {
+        "estimate": 0.6450562522297082,
+        "ci_low": 0.6033510591424022,
+        "ci_high": 0.682117462188445
+      },
+      "S written full": {
+        "estimate": 0.03357385984622128,
+        "ci_low": 0.030509372855630545,
+        "ci_high": 0.0368465764104588
+      },
+      "S rewritten full": {
+        "estimate": 0.02784878714978518,
+        "ci_low": 0.02510278313100681,
+        "ci_high": 0.030569637606795142
+      },
+      "R full": {
+        "estimate": 0.8294782690265965,
+        "ci_low": 0.7871982623879387,
+        "ci_high": 0.8720705863814048
+      },
+      "carryover written full": {
+        "estimate": 0.6971866475730564,
+        "ci_low": 0.6664426521845951,
+        "ci_high": 0.727124212868338
+      },
+      "carryover rewritten full": {
+        "estimate": 0.6926261694121412,
+        "ci_low": 0.6597887271158219,
+        "ci_high": 0.7237677868659915
+      },
+      "R sentences - words": {
+        "estimate": -0.0020377661351916876,
+        "ci_low": -0.034640241921449405,
+        "ci_high": 0.03077098126552883
+      },
+      "S written sentences - words": {
+        "estimate": 0.0004133113152108743,
+        "ci_low": -0.0010173067624650663,
+        "ci_high": 0.00198418723622578
+      },
+      "R full - words": {
+        "estimate": 0.04112985155173143,
+        "ci_low": 0.013479112519771526,
+        "ci_high": 0.0699974869034172
+      },
+      "S written full - words": {
+        "estimate": 0.0032400017588368676,
+        "ci_low": 0.001690594598453189,
+        "ci_high": 0.004785442841179336
+      }
+    }
+  }
+}
