@@ -1,11 +1,10 @@
 # Same Teacher, Same Ideas
 
-When base models from different families are fine-tuned on synthetic data from the same teacher LLM, do they converge in the content of their answers to open-ended prompts, beyond surface style? This repository holds the code, configuration, tests and result summaries for that question, and the COMS 4705 project proposal.
+When base models from different families are fine-tuned on synthetic data from the same teacher LLM, do they converge in the content of their answers to open-ended prompts, beyond surface style? This repository holds the code, configuration, tests and result summaries for that question.
 
 ## Layout
 
 ```
-Proposal/             LaTeX source and PDF of the project proposal
 configs/
   experiment.yaml     run parameters and analysis thresholds, one section per study part
   models.yaml         hosted model backends

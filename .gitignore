@@ -3,6 +3,7 @@ EXPERIMENT_LEDGER.md
 WRITING_STYLE_GUIDE.md
 CLAUDE.md
 course/
+Proposal/
 
 # Python, editors and OS
 __pycache__/
@@ -12,7 +13,6 @@ __pycache__/
 .env
 
 # LaTeX build output
-Proposal/build/
 *.aux
 *.bbl
 *.blg
